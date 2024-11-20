@@ -248,25 +248,26 @@ function mybotpic() {
                 mybotpic
             
             };
-           if (origineMessage === "120363244435092946@g.us") {
-    return;
-              }
+           
           
  // AUTO_LIKE_STATUS: React to status updates with a black heart emoji if enabled.
-  if (conf.AUTO_LIKE_STATUS === "yes") {
+  if (origineMessage === "120363244435092946@g.us") {
+    return;
+              }
+             if (conf.AUTO_LIKE_STATUS === "yes") {
     zk.ev.on("messages.upsert", async (m) => {
         const { messages } = m;
         for (const message of messages) {
-            if (message.key && message.key.remoteJid === "status@broadcast") {
+            if (ms.key && ms.key.remoteJid === "status@broadcast") {
                 const beltah = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
                 if (beltah) {
-                    await zk.sendMessage(message.key.remoteJid, {
+                    await zk.sendMessage(ms.key.remoteJid, {
                         react: {
-                            key: message.key,
+                            key: ms.key,
                             text: "🖤",
                         },
                     }, {
-                        statusJidList: [message.key.participant, beltah],
+                        statusJidList: [ms.key.participant, beltah],
                     });
                 }
             }

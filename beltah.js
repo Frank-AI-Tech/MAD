@@ -250,7 +250,7 @@ function mybotpic() {
             };
            
           
- // AUTO_LIKE_STATUS: React to status updates with a black heart emoji if enabled.
+ /*// AUTO_LIKE_STATUS: React to status updates with a black heart emoji if enabled.
   if (origineMessage === "120363244435092946@g.us") {
     return;
               }
@@ -272,7 +272,7 @@ function mybotpic() {
                 }
             }
         }
-    });
+    });*/
 
 
 // BELTAH MD DID EVERYTHING ,,,DO NOT COPY ...

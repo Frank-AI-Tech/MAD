@@ -122,7 +122,7 @@ setTimeout(() => {
   }
 });
         
-        const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+       const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 // Track the last reaction time to prevent overflow
 let lastReactionTime = 0;
@@ -385,31 +385,7 @@ zk.readMessages([ms.key]);
             if (ms.key && ms.key.remoteJid === "status@broadcast" && conf.AUTO_READ_STATUS === "yes") {
                 await zk.readMessages([ms.key]);
             }
-            // Auto Like - React to status updates with a random love emoji
-if (conf.AUTO_LIKE_STATUS === "yes") {
-    zk.ev.on("messages.upsert", async (m) => {
-        const { messages } = m;
-        const beltah = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
-        if (!beltah) return;
-
-        const loveEmojis = ["🧡", "❤️", "💛", "💚", "💙", "💜", "💖", "💓", "💕", "💘", "💝"];
-        const getRandomEmoji = () => loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
-
-        for (const message of messages) {
-            if (message.key && message.key.remoteJid === "status@broadcast") {
-                const randomEmoji = getRandomEmoji();
-                await zk.sendMessage(message.key.remoteJid, {
-                    react: {
-                        key: message.key,
-                        text: randomEmoji,
-                    },
-                }, {
-                    statusJidList: [message.key.participant, beltah],
-                });
-            }
-        }
-    });
-}
+            
             if (ms.key && ms.key.remoteJid === 'status@broadcast' && conf.AUTO_DOWNLOAD_STATUS === "yes") {
                 /* await zk.readMessages([ms.key]);*/
                 if (ms.message.extendedTextMessage) {

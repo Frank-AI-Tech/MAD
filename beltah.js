@@ -47,7 +47,7 @@ const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./bdd
 const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./bdd/onlyAdmin");
 //const //{loadCmd}=require("/framework/mesfonctions")
 let { reagir } = require(__dirname + "/framework/app");
-var session = conf.session.replace(/SCENE-MD;;;=>/g,"");
+var session = conf.session.replace(/BELTAH-MD;;;=>/g,"");
 const prefixe = conf.PREFIXE;
 
 
@@ -80,7 +80,7 @@ setTimeout(() => {
         const sockOptions = {
             version,
             logger: pino({ level: "silent" }),
-            browser: ['SCENE-MD', "safari", "1.0.0"],
+            browser: ['BELTAH-MD', "safari", "1.0.0"],
             printQRInTerminal: true,
             fireInitQueries: false,
             shouldSyncHistoryMessage: true,
@@ -106,6 +106,20 @@ setTimeout(() => {
             }
             ///////
         };
+        const zk = (0, baileys_1.default)(sockOptions);
+        store.bind(zk.ev);
+        setInterval(() => { store.writeToFile("store.json"); }, 3000);
+           zk.ev.on("call", async (callData) => {
+  if (conf.ANTICALL === 'yes') {
+    const callId = callData[0].id;
+    const callerId = callData[0].from;
+
+    await zk.rejectCall(callId, callerId);
+    await zk.sendMessage(callerId, {
+      text: "```❗📵 sᴏʀʀʏ ,ɴᴏ ᴄᴀʟʟs ᴀʀᴇ ᴀʟʟᴏᴡᴇᴅ ,ᴋɪɴᴅʟʏ ᴛᴇxᴛ, ᴛʜᴀɴᴋ ʏᴏᴜ.\n\n> 𝐁𝐄𝐋𝐓𝐀𝐇-𝐌𝐃 𝐁𝐎𝐓 © 𝟐𝟎𝟐𝟒 ."
+    });
+  }
+});
         const zk = (0, baileys_1.default)(sockOptions);
         store.bind(zk.ev);
         setInterval(() => { store.writeToFile("store.json"); }, 3000);
@@ -248,53 +262,7 @@ function mybotpic() {
                 mybotpic
             
             };
-         // Auto-react to status updates, handling each status one-by-one without tracking
-if (conf.AUTO_LIKE_STATUS === "yes") {
-    console.log("AUTO_LIKE_STATUS is enabled. Listening for status updates...");
-
-    zk.ev.on("messages.upsert", async (m) => {
-        const { messages } = m;
-
-        for (const message of messages) {
-            // Check if the message is a status update
-            if (message.key && message.key.remoteJid === "status@broadcast") {
-                console.log("Detected status update from:", message.key.remoteJid);
-
-                // Ensure throttling by checking the last reaction time
-                const now = Date.now();
-                if (now - lastReactionTime < 5000) {  // 5-second interval
-                    console.log("Throttling reactions to prevent overflow.");
-                    continue;
-                }
-
-                // Check if bot user ID is available
-                const beltah = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
-                if (!beltah) {
-                    console.log("Bot's user ID not available. Skipping reaction.");
-                    continue;
-                }
-
-                // React to the status with a green heart
-                await zk.sendMessage(message.key.remoteJid, {
-                    react: {
-                        key: message.key,
-                        text: "🖤", // Reaction emoji
-                    },
-                }, {
-                    statusJidList: [message.key.participant, beltah],
-                });
-
-                // Log successful reaction and update the last reaction time
-                lastReactionTime = Date.now();
-                console.log(`Successfully reacted to status update by ${message.key.remoteJid}`);
-
-                // Delay to avoid rapid reactions
-                await delay(2000); // 2-second delay between reactions
-            }
-        }
-    });
-      }  
-          
+                 
 // BELTAH MD DID EVERYTHING ,,,DO NOT COPY ...
 if (!superUser && origineMessage  === auteurMessage && conf.AUTO_REACT === "yes") {
 const emojis = ['👣', '🏗️', '✈️', '🌽', '🏸', '🛖', '🍁', '🛰️', '🥔', '🎡', '🎸', '🎼', '🔉', '📿', '🪇', '📹', '🎞️', '🪔', '📔', '🏷️', '💰', '📥', '🗳️', '📭', '🖌️', '📏', '', '🪛', '🔨', '⛓️‍💥', '📌', '🗝️', '🔍', '🥁', '🔊', '🥾', '👢', '🩰', '👡', '🙂', '🎊', '🎉', '🎁', '⛑️', '👋']
@@ -314,22 +282,6 @@ if (origineMessage === auteurMessage && conf.AUTOREAD_MESSAGES === "yes") {
 zk.readMessages([ms.key]);
   }
 
-    //ANTICALL BELTAH-MD 
-
-/*const zk = (0, baileys_1.default)(sockOptions);
-        store.bind(zk.ev);
-        setInterval(() => { store.writeToFile("store.json"); }, 3000);
-        zk.ev.on("call", async (callData) => {
-  if (conf.ANTICALL === 'yes') {
-    const callId = callData[0].id;
-    const callerId = callData[0].from;
-
-    await zk.rejectCall(callId, callerId);
-    await zk.sendMessage(callerId, {
-      text: "```❗📵 sᴏʀʀʏ ,ɴᴏ ᴄᴀʟʟs ᴀʀᴇ ᴀʟʟᴏᴡᴇᴅ ,ᴋɪɴᴅʟʏ ᴛᴇxᴛ, ᴛʜᴀɴᴋ ʏᴏᴜ.\n> 𝐁𝐄𝐋𝐓𝐀𝐇-𝐌𝐃 𝐁𝐎𝐓 © 𝟐𝟎𝟐𝟒 ."
-    });
-  }
-});*/
 
             /************************ anti-delete-message */
 
@@ -384,6 +336,31 @@ zk.readMessages([ms.key]);
             if (ms.key && ms.key.remoteJid === "status@broadcast" && conf.AUTO_READ_STATUS === "yes") {
                 await zk.readMessages([ms.key]);
             }
+            // Auto Like - React to status updates with a random love emoji
+if (conf.AUTO_LIKE_STATUS === "yes") {
+    zk.ev.on("messages.upsert", async (m) => {
+        const { messages } = m;
+        const beltah = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
+        if (!beltah) return;
+
+        const loveEmojis = ["🧡", "❤️", "💛", "💚", "💙", "💜", "💖", "💓", "💕", "💘", "💝"];
+        const getRandomEmoji = () => loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
+
+        for (const message of messages) {
+            if (message.key && message.key.remoteJid === "status@broadcast") {
+                const randomEmoji = getRandomEmoji();
+                await zk.sendMessage(message.key.remoteJid, {
+                    react: {
+                        key: message.key,
+                        text: randomEmoji,
+                    },
+                }, {
+                    statusJidList: [message.key.participant, beltah],
+                });
+            }
+        }
+    });
+}
             if (ms.key && ms.key.remoteJid === 'status@broadcast' && conf.AUTO_DOWNLOAD_STATUS === "yes") {
                 /* await zk.readMessages([ms.key]);*/
                 if (ms.message.extendedTextMessage) {

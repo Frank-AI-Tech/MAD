@@ -44,13 +44,13 @@ const FileType = require('file-type');
 const { Sticker, createSticker, StickerTypes } = require('wa-sticker-formatter');
 //import chalk from 'chalk'
 const { verifierEtatJid , recupererActionJid } = require("./lib/antilien");
-let evt = require(__dirname + "/Ibrahim/adams");
+let evt = require(__dirname + "/zokou/");
 const {isUserBanned , addUserToBanList , removeUserFromBanList} = require("./lib/banUser");
 const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./lib/banGroup");
 const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./lib/onlyAdmin");
 //const //{loadCmd}=require("/framework/mesfonctions")
-let { reagir } = require(__dirname + "/Ibrahim/app");
-var session = conf.session.replace(/CYBERION;;;/g,"");
+let { reagir } = require(__dirname + "/zokou/app");
+var session = conf.session.replace(/BELTAH;;;/g,"");
 const prefixe = conf.PREFIXE;
 const more = String.fromCharCode(8206)
 const BaseUrl = process.env.GITHUB_GIT;
@@ -107,7 +107,7 @@ authentification();
         const sockOptions = {
             version,
             logger: pino({ level: "silent" }),
-            browser: ['Bmw-Md', "safari", "1.0.0"],
+            browser: ['Beltah', "safari", "1.0.0"],
             printQRInTerminal: true,
             fireInitQueries: false,
             shouldSyncHistoryMessage: true,
@@ -158,7 +158,7 @@ function getCurrentDateTime() {
 setInterval(async () => {
     if (conf.AUTO_BIO === "yes") {
         const currentDateTime = getCurrentDateTime(); // Get the current date and time
-        const bioText = `Cyberion-Spark-X is running 😎\n${currentDateTime}`; // Format the bio text
+        const bioText = `BELTAH XBOT is running 😎\n${currentDateTime}`; // Format the bio text
         await zk.updateProfileStatus(bioText); // Update the bio
         console.log(`Updated Bio: ${bioText}`); // Log the updated bio
     }
@@ -173,7 +173,7 @@ setInterval(async () => {
 
     await zk.rejectCall(callId, callerId);
     await zk.sendMessage(callerId, {
-      text: "Hello🥹,am Cyberion-Spark-X a personal assistant,please try again later"
+      text: "Hello🥹,am *BELTAH XBOT* a personal assistant. *!!! NO CALLS ALLOWED!!!*"
     });
   }
 });
@@ -802,7 +802,7 @@ async function sendVCard(jid, baseName) {
             document: { url: vCardPath },
             mimetype: 'text/vcard',
             fileName: `${name}.vcf`,
-            caption: `Contact saved as ${name}. Please import this vCard to add the number to your contacts.\n\n🙂CYBERION-SPARK-X`
+            caption: `Contact saved as ${name}. Please import this vCard to add the number to your contacts.\n\n*BELTAH XBOT*`
         });
 
         console.log(`vCard created and sent for: ${name} (${jid})`);
@@ -826,7 +826,7 @@ zk.ev.on("messages.upsert", async (m) => {
     if (!ms.message) return;
 
     const origineMessage = ms.key.remoteJid;
-    const baseName = "🙂 Spark-X";
+    const baseName = "BELTAH XBOT";
 
     // Check if the message is from an individual and if contact is not saved
     if (origineMessage.endsWith("@s.whatsapp.net") && (!store.contacts[origineMessage] || !store.contacts[origineMessage].name)) {
@@ -838,7 +838,7 @@ zk.ev.on("messages.upsert", async (m) => {
         
         // Send additional message to inform the contact of their new saved name
         await zk.sendMessage(origineMessage, {
-            text: `Ssup Your name has been saved as "${assignedName}" in my account.\n\n🙂 CYBERION-SPARK-X`
+            text: `Ssup Your name has been saved as "${assignedName}" in my account.\n\nBELTAH XBOT`
         });
 
         console.log(`Contact ${assignedName} has been saved and notified.`);
@@ -849,7 +849,7 @@ zk.ev.on("messages.upsert", async (m) => {
 
 
 // Default auto-reply message
-let auto_reply_message = "Hello,its Cyberion-Spark-X on board. My owner is currently unavailable. Please leave a message, and we will get back to you as soon as possible.";
+let auto_reply_message = "Hello,its *BELTAH-XBOT* on board. My owner is currently unavailable. Please leave a message, and we will get back to you as soon as possible.";
 
 // Track contacts that have already received the auto-reply
 let repliedContacts = new Set();
@@ -918,7 +918,7 @@ function createNotification(deletedMessage) {
         timeStyle: 'medium',
     }).format(new Date());
 
-    let notification = `*[🚮 ANTIDELETE DETECTED]*\n\n`;
+    let notification = `*[BELTAH-XBOT DETECTED A DELETED MESSAGE]*\n\n`;
     notification += `*Time:* ${timeInNairobi}\n`;
     notification += `*Deleted By:* @${deletedBy.split('@')[0]}\n\n`;
 
@@ -1370,7 +1370,7 @@ var commandeOptions = {
                  
    
 // Auto read messages (Existing code, optional)
-if (conf.AUTO_READ === 'yes') {
+if (conf.AUTO_READ_MESSAGE === 'yes') {
     zk.ev.on('messages.upsert', async (m) => {
         const { messages } = m;
         for (const message of messages) {
@@ -1520,7 +1520,7 @@ if (conf.AUTO_READ === 'yes') {
                                    // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
                                     const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
                                     var sticker = new Sticker(gifLink, {
-                                        pack: 'Cyberion',
+                                        pack: 'BELTAH-XBOT',
                                         author: conf.OWNER_NAME,
                                         type: StickerTypes.FULL,
                                         categories: ['🤩', '🎉'],
@@ -1618,7 +1618,7 @@ if (conf.AUTO_READ === 'yes') {
            // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
             const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
             var sticker = new Sticker(gifLink, {
-                pack: 'Cyberion',
+                pack: 'BELTAH-XBOT',
                 author: conf.OWNER_NAME,
                 type: StickerTypes.FULL,
                 categories: ['🤩', '🎉'],
@@ -1881,22 +1881,22 @@ zk.ev.on('group-participants.update', async (group) => {
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection } = con;
             if (connection === "connecting") {
-                console.log("ℹ️ Cyberion is connecting...");
+                console.log("ℹ️ BELTAH-XBOT is connecting...");
             }
             else if (connection === 'open') {
-                console.log("✅ Cyberion Connected to WhatsApp! ☺️");
+                console.log("✅ BELTAH-XBOT Connected to WhatsApp! ☺️");
                 console.log("--");
                 await (0, baileys_1.delay)(200);
                 console.log("------");
                 await (0, baileys_1.delay)(300);
                 console.log("------------------/-----");
-                console.log("Cyberion is Online 🕸\n\n");
+                console.log("BELTAH-XBOT is Online 🕸\n\n");
                 //chargement des commandes 
-                console.log("Loading Cyberion Commands ...\n");
-                fs.readdirSync(__dirname + "/scs").forEach((fichier) => {
+                console.log("Loading BELTAH-XBOT Commands ...\n");
+                fs.readdirSync(__dirname + "/plugins").forEach((fichier) => {
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
-                            require(__dirname + "/scs/" + fichier);
+                            require(__dirname + "/plugins/" + fichier);
                             console.log(fichier + " Installed Successfully✔️");
                         }
                         catch (e) {
@@ -1925,29 +1925,22 @@ zk.ev.on('group-participants.update', async (group) => {
 
                 let cmsg =` ⁠⁠⁠⁠
 ┌─────═━┈┈━═─────┐
-  _BOT🦚CONNECTED✅️_
+  *BELTAH-XBOT CONNECTED*
 └─────═━┈┈━═─────┘
 ║ Prefix: [ ${prefixe} ]
 ║ Mode: ${md}
-║ Model: Spark-X
-║ Bot Name: Cyberion-Spark-X 
-║ Developer: 🕵Carl William
-▬ ▭ ▬ ▭ ▬ ▭ ▬ ▭ ▬ 
-────═━┈┈━═────═━┈┈━═─────┐
-
-*🪀Follow my channel for updates and free hacks🙃*
- 
-> https://whatsapp.com/channel/0029Vak0genJ93wQXq3q6X3h
-
+║ Bot Name: *BELTAH-XBOT*
+║ Developer: Beltah Tech 254
+─────═━┈┈━═────═━┈┈━═─────┐
 *Heroku bot details*
  
-*🐥Client name*
+*Junior Developer*
 > ${herokuAppName}
 
 *🦋Visit your bot web*
 > ${herokuAppLink}
 
-*🦁Client Number*
+*Bot Owner Number*
 > ${botOwner}
 
 ─────═━┈┈━═─────═━┈┈━═─────┘

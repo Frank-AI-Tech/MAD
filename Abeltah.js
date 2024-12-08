@@ -1,4 +1,4 @@
-/*"use strict";
+"use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
   var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -110,18 +110,47 @@ setTimeout(() => {
         store.bind(zk.ev);
         
         setInterval(() => { store.writeToFile("store.json"); }, 3000);
-           zk.ev.on("call", async (callData) => {
+
+// Function to get the current date and time in Kenya
+function getCurrentDateTime() {
+    const options = {
+        timeZone: 'Africa/Nairobi', // Kenya time zone
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false, // 24-hour format
+    };
+    const dateTime = new Intl.DateTimeFormat('en-KE', options).format(new Date());
+    return dateTime;
+}
+
+// Auto Bio Update Interval
+setInterval(async () => {
+    if (conf.AUTO_BIO === "yes") {
+        const currentDateTime = getCurrentDateTime(); // Get the current date and time
+        const bioText = `BELTAH XBOT is running 😎\n${currentDateTime}`; // Format the bio text
+        await zk.updateProfileStatus(bioText); // Update the bio
+        console.log(`Updated Bio: ${bioText}`); // Log the updated bio
+    }
+}, 60000); // Update bio every 60 seconds
+
+// Function to handle deleted messages
+// Other functions (auto-react, anti-delete, etc.) as needed
+        zk.ev.on("call", async (callData) => {
   if (conf.ANTICALL === 'yes') {
     const callId = callData[0].id;
     const callerId = callData[0].from;
 
     await zk.rejectCall(callId, callerId);
     await zk.sendMessage(callerId, {
-      text: "❗📵 sᴏʀʀʏ ,ɴᴏ ᴄᴀʟʟs ᴀʀᴇ ᴀʟʟᴏᴡᴇᴅ ,ᴋɪɴᴅʟʏ ᴛᴇxᴛ, ᴛʜᴀɴᴋ ʏᴏᴜ.\n\n> 𝐁𝐄𝐋𝐓𝐀𝐇-𝐌𝐃 𝐁𝐎𝐓 © 𝟐𝟎𝟐𝟒 ."
+      text: "Hello🥹,am *BELTAH XBOT* a personal assistant. *!!! NO CALLS ALLOWED!!!*"
     });
   }
 });
-        
+
        const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 // Track the last reaction time to prevent overflow

@@ -109,7 +109,7 @@ setTimeout(() => {
         const zk = (0, baileys_1.default)(sockOptions);
         store.bind(zk.ev);
         
-        setInterval(() => { store.writeToFile("store.json"); }, 3000);
+//setInterval(() => { store.writeToFile("store.json"); }, 3000);
 
 // Function to get the current date and time in Kenya
 function getCurrentDateTime() {
@@ -131,7 +131,7 @@ function getCurrentDateTime() {
 setInterval(async () => {
     if (conf.AUTO_BIO === "yes") {
         const currentDateTime = getCurrentDateTime(); // Get the current date and time
-        const bioText = `BELTAH XBOT is running 😎\n${currentDateTime}`; // Format the bio text
+        const bioText = `BELTAH XBOT is alive : ${currentDateTime}`; // Format the bio text
         await zk.updateProfileStatus(bioText); // Update the bio
         console.log(`Updated Bio: ${bioText}`); // Log the updated bio
     }

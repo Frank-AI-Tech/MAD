@@ -87,20 +87,21 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     const formattedTotalUsers = totalUsers.toLocaleString();
 
     let infoMsg = `
-    
-┌══⊷✰❒⁠ BELTAH XBOT ❒⁠⁠⁠⁠✰
-┊┊┌──────────
-┣➠┊ *User :*  ${s.OWNER_NAME}
-┣➠┊ *Mode :* ${mode}
-┣➠┊ *Prefix :* ${s.PREFIXES} 
-┣➠┊ *Time :* ${temps}
-┣➠┊ *Date :* ${date} 
-┣➠┊ *Time Zone :* Africa/Nairobi
-┣➠┊ *Total Users :* ${formattedTotalUsers}  
-┣➠┊ *Ram :* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())} 
-┣➠┊ *Uptime :* ${runtime(process.uptime())} 
-┊┊└───────────
-┗━━━━━━━━━━━━━━━┛`;
+> *${greeting} ${nomAuteurMessage}*
+
+┌══⊷✰❒⁠ BELTAH XBOT ❒⁠⁠⁠⁠✰══⊷
+┊✣╭──────────────
+┊✣┊ *User :*  ${s.OWNER_NAME}
+┊✣┊ *Mode :* ${mode}
+┊✣┊ *Prefix :* ${s.PREFIXES} 
+┊✣┊ *Time :* ${temps}
+┊✣┊ *Date :* ${date} 
+┊✣┊ *Time Zone :* Africa/Nairobi
+┊✣┊ *Total Users :* ${formattedTotalUsers}  
+┊✣┊ *Ram :* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())} 
+┊✣┊ *Uptime :* ${runtime(process.uptime())} 
+┊✣└───────────────
+╰═════════════════⊷`;
 
     let menuMsg = `
 ┌─────────────
@@ -138,10 +139,11 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
                 externalAdReply: {
+                    showAdAttribution: true,
                     title: "THE BELTAH XBOT ",
                     body: "POWERED BY BELTAH HACKING TEAM",
-                    thumbnailUrl: "https://telegra.ph/file/4143dfac775bff078cc5a.jpg",
-                    sourceUrl: 'https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P',
+                    thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P' +,
                     mediaType: 1,
                     renderLargerThumbnail: true
                 }

@@ -162,9 +162,9 @@ function createNotification(deletedMessage) {
         timeStyle: 'medium',
     }).format(new Date());
 
-    let notification = `*[DELETED MESSAGE RETRIEVED]*\n\n`;
+    let notification = `*[ DELETED MESSAGE RETRIEVED ]*\n\n`;
     notification += `*Time:* ${timeInNairobi}\n`;
-    notification += `*Deleted By:* @${deletedBy.split('@')[0]}\n\n> 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐞𝐥𝐭𝐚𝐡 𝐇𝐚𝐜𝐤𝐢𝐧𝐠 𝐓𝐞𝐚𝐦`;
+    notification += `*Deleted By:* @${deletedBy.split('@')[0]}\n\n`;
 
     return notification;
 }
@@ -203,7 +203,7 @@ zk.ev.on("messages.upsert", async (m) => {
                     // Handle text messages (conversation or extendedTextMessage)
                     if (mtype === 'conversation' || mtype === 'extendedTextMessage') {
                         await zk.sendMessage(conf.NUMERO_OWNER + '@s.whatsapp.net', {
-                            text: notification + `*Message:* ${deletedMessage.message[mtype].text}`,
+                            text: notification + `*Message:* ${deletedMessage.message[mtype].text}\n\n> 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐞𝐥𝐭𝐚𝐡 𝐇𝐚𝐜𝐤𝐢𝐧𝐠 𝐓𝐞𝐚𝐦`,
                             mentions: [deletedMessage.key.participant],
                         });
                     }

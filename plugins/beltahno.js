@@ -87,11 +87,9 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     const formattedTotalUsers = totalUsers.toLocaleString();
 
     let infoMsg = `
-
-┏━━━━━✧𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓✧━━━━━━━┓
-┣➠ *${greeting} ${nomAuteurMessage}*
-┗┳━━━━━━━━━━━━━━━┳┛
-┏┻━━━━━━━━━━━━━━━┻┓
+    
+┌══⊷✰❒⁠ BELTAH XBOT ❒⁠⁠⁠⁠✰
+┊┊┌──────────
 ┣➠┊ *User :*  ${s.OWNER_NAME}
 ┣➠┊ *Mode :* ${mode}
 ┣➠┊ *Prefix :* ${s.PREFIXES} 
@@ -101,12 +99,13 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 ┣➠┊ *Total Users :* ${formattedTotalUsers}  
 ┣➠┊ *Ram :* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())} 
 ┣➠┊ *Uptime :* ${runtime(process.uptime())} 
-┗━━━━━━━━━━━━━━━━━┛`;
+┊┊└───────────
+┗━━━━━━━━━━━━━━━┛`;
 
     let menuMsg = `
-┗━━━━━━━━━━━━━━━━┛
+┌─────────────
 ┣ *BELTAH XBOT COMMANDS*
-┏━━━━━━━━━━━━━━━━┓`;
+└──────────────`;
 
     // Sort categories alphabetically and generate menu
     const sortedCategories = Object.keys(coms).sort();
@@ -114,19 +113,19 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     for (const cat of sortedCategories) {
         menuMsg += `
-  ┃✰❒⁠${cat.toUpperCase()} ❒⁠⁠⁠⁠✰
-┏┻━━━━━━━━━━━━━━━┻┓`;
+┌══⊷✰❒⁠${cat.toUpperCase()} ❒⁠⁠⁠⁠✰
+┊┌─────────────`;
 
         // Sort commands alphabetically within the category
         const sortedCommands = coms[cat].sort();
 
         for (const cmd of sortedCommands) {
             menuMsg += ` 
-┃┊➪︎︎ ${commandNumber++}. ${cmd}`;
+┊┊➪︎︎ ${commandNumber++}. ${cmd}`;
         }
         menuMsg += `
-┏┻━━━━━━━━━━━━━━━┻┓
-┗┳━━━━━━━━━━━━━━━┳┛\n`;
+┊└─────────────
+╰═════════════════⊷\n`;
     }
 
     menuMsg += `┏┻━━━━━━━━━━━━━━━┻┓

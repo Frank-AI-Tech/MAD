@@ -138,12 +138,12 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
             text: infoMsg + menuMsg,
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
+               showAdAttribution: true,
                 externalAdReply: {
-                    showAdAttribution: true,
                     title: "THE BELTAH XBOT ",
                     body: "POWERED BY BELTAH HACKING TEAM",
                     thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
-                    sourceUrl: 'https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P' +,
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P',
                     mediaType: 1,
                     renderLargerThumbnail: true
                 }

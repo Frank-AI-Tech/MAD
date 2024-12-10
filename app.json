@@ -37,7 +37,7 @@
       "value": "yes",
       "required": false
     },
-    "ANTI_DELETE2": {
+    "ANTIDELETEDM": {
       "description": "deleted messages will be sent to pm(type yes to active or no to deactive  ; don't write in capital letter)",
       "value": "yes",
       "required": false

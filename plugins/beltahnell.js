@@ -63,7 +63,7 @@ zokou({ nomCom: "channel", categorie: "General" }, async (dest, zk, commandeOpti
     });
 
     // Set the default timezone from the configuration
-    moment.tz.setDefault(s.TZ);
+    moment.tz.setDefault('Africa/Nairobi');
 
     // Create a date and time in the configured timezone
     const temps = moment().format('HH:mm:ss');
@@ -89,10 +89,10 @@ zokou({ nomCom: "channel", categorie: "General" }, async (dest, zk, commandeOpti
     let infoMsg = `
 *${greeting} ${nomAuteurMessage}* Welcome to BELTAH XBOT official WhatsApp channel.Click on the button Below to follow our channel.
 
-It's ${temps} on  ${date}.`;
+CURRENT TIME IS ${temps} AND THE CURRENT DATE IS ${date}.`;
 
     let menuMsg = `
-    > POWERED BY BELTAH HACKING TEAM`;
+> 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 𝐁𝐄𝐋𝐓𝐀𝐇 𝐇𝐀𝐂𝐊𝐈𝐍𝐆 𝐓𝐄𝐀𝐌`;
 
     // Sort categories alphabetically and generate menu
   //const sortedCategories = Object.keys(coms).sort();

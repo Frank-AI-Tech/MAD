@@ -71,15 +71,15 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     // Determine the greeting based on the current time
     const hour = moment().hour();
-    let greeting = "Good Night";
+    let greeting = "Merry Christmas🎄";
     if (hour >= 0 && hour <= 11) {
-        greeting = "Good Morning";
+        greeting = "Happy Festive 🎅";
     } else if (hour >= 12 && hour <= 16) {
-        greeting = "Good Afternoon";
+        greeting = "Merry Xmas 🎄";
     } else if (hour >= 16 && hour <= 21) {
-        greeting = "Good Evening";
+        greeting = "Happy December 🎄";
     } else if (hour >= 21 && hour <= 23) {
-        greeting = "Good Night";
+        greeting = "Santa Time 🎅";
     }
 
     // Fetch GitHub stats
@@ -89,7 +89,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     let infoMsg = `
 > *${greeting} ${nomAuteurMessage}*
 
-┌══⊷✰❒⁠ BELTAH XBOT ❒⁠⁠⁠⁠✰══⊷
+┌══⊷✰❒⁠ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ❒⁠⁠⁠⁠✰══⊷
 ┊✣╭──────────────
 ┊✣┊ *User :*  ${s.OWNER_NAME}
 ┊✣┊ *Mode :* ${mode}
@@ -97,7 +97,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 ┊✣┊ *Time :* ${temps}
 ┊✣┊ *Date :* ${date} 
 ┊✣┊ *Time Zone :* Africa/Nairobi
-┊✣┊ *Total Users :* ${formattedTotalUsers}  
+┊✣┊ *Total Users :* 2607
 ┊✣┊ *Ram :* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())} 
 ┊✣┊ *Uptime :* ${runtime(process.uptime())} 
 ┊✣└───────────────
@@ -105,7 +105,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     let menuMsg = `
 ┌─────────────
-┣ *BELTAH XBOT COMMANDS*
+┣ *BELTAH XBOT PLUGINS*
 └──────────────`;
 
     // Sort categories alphabetically and generate menu
@@ -129,9 +129,10 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 ╰═════════════════⊷\n`;
     }
 
-    menuMsg += `┏┻━━━━━━━━━━━━━━━┻┓
-    ┗━━━━━━━━━━━━━━━━━┛
-> © BELTAH TECH 254 `;
+    menuMsg += `
+    ┏┻━━━━━━━━━━━━━━━┻┓
+    > © BELTAH TECH 254
+    ┗━━━━━━━━━━━━━━━━━┛`;
 
     try {
         await zk.sendMessage(dest, { 
@@ -140,10 +141,10 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
                 mentionedJid: [nomAuteurMessage],
                showAdAttribution: true,
                 externalAdReply: {
-                    title: "THE BELTAH XBOT ",
-                    body: "POWERED BY BELTAH HACKING TEAM",
+                    title: "⭕🛑 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕🛑 ",
+                    body: "BELTAH XBOT SYSTEM SETTINGS",
                     thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
-                    sourceUrl: 'https://whatsapp.com/channel/0029VaTbb3p84Om9LRX1jg0P',
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
                     mediaType: 1,
                     renderLargerThumbnail: true
                 }

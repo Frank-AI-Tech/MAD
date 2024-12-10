@@ -20,23 +20,23 @@ zokou({
   const _0x5a815c = Array.from({
     'length': 0x3
   }, () => Math.floor(Math.random() * 10000 + 1000));
-  const _0x451c3b = _0x5a815c.map(_0x526b71 => "🔴 PONG: " + _0x526b71 + " 🔴").join("\n");
+  const _0x451c3b = _0x5a815c.map(_0x526b71 => "🔴 " + _0x526b71 + " 🔴").join("\n");
   const _0x41d2b1 = {
     'externalAdReply': {
-      'title': "Lucky_Md My Ultra Speed Response",
-      'body': "Ping Results : " + _0x451c3b,
-      'sourceUrl': "https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f",
+      'title': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒",
+      'body': "ᴘɪɴɢ ʀᴇsᴜʟᴛs ⭕: " + _0x451c3b,
+      'sourceUrl': "https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F",
       'thumbnailUrl': "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
       'mediaType': 0x1,
       'showAdAttribution': true
     }
   };
   const _0x54ea81 = {
-    'displayName': "BELTAH XBOT SUPPORT",
-    'vcard': "BEGIN:VCARD\nVERSION:3.0\nFN:LUCKY MD\nORG:LUCKY MD Nexus;\nTEL;type=CELL;type=VOICE;waid=255764182801:+255 752 593 977\nEND:VCARD"
+    'displayName': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐔𝐏𝐏𝐎𝐑𝐓",
+    'vcard': "BEGIN:VCARD\nVERSION:3.0\nFN:BELTAH \nORG:BELTAH Nexus;\nTEL;type=CELL;type=VOICE;waid=254114141192:254737681758 \nEND:VCARD"
   };
   await _0x41d5d3.sendMessage(_0x4cfdc6, {
-    'text': "🛸 *LUCKY MD* 🛸",
+    'text': "🛸 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐏𝐄𝐄𝐃 🛸",
     'contextInfo': _0x41d2b1,
     'contacts': {
       'displayName': "BELTAH XBOT Verified Contact",
@@ -61,23 +61,23 @@ zokou({
   const _0x2f3abc = new Date(_0x766aaf * 1000).toISOString().substr(11, 8);
   const _0xae590 = {
     'externalAdReply': {
-      'title': " BELTAH XBOT SYSTEM SETTINGS",
-      'body': "Bot has been running for: " + _0x2f3abc,
-      'sourceUrl': "https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f",
+      'title': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒",
+      'body': "ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ʀᴜɴɴɪɴɢ ғᴏʀ : " + _0x2f3abc,
+      'sourceUrl': "https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F",
       'thumbnailUrl': "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
       'mediaType': 0x1,
       'showAdAttribution': true
     }
   };
   const _0x297b69 = {
-    'displayName': "LUCKY MD Support",
+    'displayName': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐔𝐏𝐏𝐎𝐑𝐓",
     'vcard': "BEGIN:VCARD\nVERSION:3.0\nFN:BELTAH XBOT\nORG: BELTAH XBOT Nexus;\nTEL;type=CELL;type=VOICE;waid=254114141192 :254737681758\nEND:VCARD"
   };
   await _0x161605.sendMessage(_0x205206, {
-    'text': "*LUCKY MD UPTIME* " + _0x2f3abc,
+    'text': "** " + _0x2f3abc,
     'contextInfo': _0xae590,
     'contacts': {
-      'displayName': "LUCKY MD Verified Contact",
+      'displayName': "BELTAH TECH Verified Contact",
       'contacts': [_0x297b69]
     },
     'quoted': _0x4e9ae0

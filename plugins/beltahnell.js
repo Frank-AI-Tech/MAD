@@ -131,7 +131,7 @@ It's ${temps} on  ${date}.`;
                     body: "TAP HERE TO FOLLOW OUR CHANNEL",
                     thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
                     sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
-                    mediaType: 1,
+                    mediaType: 0x1,
                     renderLargerThumbnail: true
                 }
             }

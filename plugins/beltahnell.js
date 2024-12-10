@@ -87,10 +87,12 @@ zokou({ nomCom: "channel", categorie: "General" }, async (dest, zk, commandeOpti
     const formattedTotalUsers = totalUsers.toLocaleString();
 
     let infoMsg = `
-> *${greeting} ${nomAuteurMessage}* Welcome to BELTAH XBOT official WhatsApp channel.Click on the button Below to follow our channel.
+*${greeting} ${nomAuteurMessage}* Welcome to BELTAH XBOT official WhatsApp channel.Click on the button Below to follow our channel.
+
 It's ${temps} on  ${date}.`;
 
-    let menuMsg = `> POWERED BY BELTAH HACKING TEAM`;
+    let menuMsg = `
+    > POWERED BY BELTAH HACKING TEAM`;
 
     // Sort categories alphabetically and generate menu
   //const sortedCategories = Object.keys(coms).sort();

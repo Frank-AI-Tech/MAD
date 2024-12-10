@@ -129,7 +129,6 @@ CURRENT TIME IS ${temps} AND THE CURRENT DATE IS ${date}.`;
                 externalAdReply: {
                     title: "⭕🛑 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕🛑 ",
                     body: "TAP HERE TO FOLLOW OUR CHANNEL",
-                    thumbnailUrl: "",
                     sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
                     mediaType: 0x1,
                     renderLargerThumbnail: true

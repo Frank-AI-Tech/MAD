@@ -74,7 +74,7 @@ zokou({
     'vcard': "BEGIN:VCARD\nVERSION:3.0\nFN:BELTAH XBOT\nORG: BELTAH XBOT Nexus;\nTEL;type=CELL;type=VOICE;waid=254114141192 :254737681758\nEND:VCARD"
   };
   await _0x161605.sendMessage(_0x205206, {
-    'text': "** " + _0x2f3abc,
+    'text': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 UPTIME :" + _0x2f3abc,
     'contextInfo': _0xae590,
     'contacts': {
       'displayName': "BELTAH TECH Verified Contact",

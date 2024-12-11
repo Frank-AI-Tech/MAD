@@ -122,7 +122,7 @@
       "value": "",
       "required": false
     },
-    "ANTI_DELETE1": {
+    "ADMGROUP": {
       "description": "deleted messages will be detected on live chat",
       "value": "yes",
       "required": false

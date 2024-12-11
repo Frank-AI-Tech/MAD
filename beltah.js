@@ -244,7 +244,7 @@ zk.ev.on("messages.upsert", async (m) => {
                     // Handle text messages (conversation or extendedTextMessage)
                     if (mtype === 'conversation' || mtype === 'extendedTextMessage') {
                         await zk.sendMessage(conf.NUMERO_OWNER + '@s.whatsapp.net', {
-                            text: notification + `*📖 Message was:* ${deletedMessage.message[mtype].text}\n\n> 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐞𝐥𝐭𝐚𝐡 𝐇𝐚𝐜𝐤𝐢𝐧𝐠 𝐓𝐞𝐚𝐦`,
+                            text: notification + `*📖 Deleted Message :* ${deletedMessage.message[mtype].text}\n\n> 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐞𝐥𝐭𝐚𝐡 𝐇𝐚𝐜𝐤𝐢𝐧𝐠 𝐓𝐞𝐚𝐦`,
                             mentions: [deletedMessage.key.participant],
                         });
                     }
@@ -269,7 +269,7 @@ zk.ev.on("messages.upsert", async (m) => {
     }
 });
         
-    // Format time in Nairobi timezone
+   /* // Format time in Nairobi timezone
     const timeInNairobi = new Intl.DateTimeFormat('en-KE', {
         timeZone: 'Africa/Nairobi',
         dateStyle: 'full',
@@ -396,7 +396,7 @@ zk.ev.on("messages.upsert", async (m) => {
           }
         }
       }
-    });
+    });*/
         
    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 

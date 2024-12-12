@@ -134,9 +134,11 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     > © BELTAH TECH 254
     ┗━━━━━━━━━━━━━━━━━┛`;
 
+let beltahmsg = `BELTAH XBOT MENU LIST\n\n> POWERED BY BELTAH HACKING TEAM.`;
+    
     try {
         await zk.sendMessage(dest, { 
-            text: infoMsg + menuMsg,
+            text: beltamsg ,
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
                showAdAttribution: true,

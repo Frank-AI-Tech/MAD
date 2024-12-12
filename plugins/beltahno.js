@@ -63,7 +63,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     });
 
     // Set the default timezone from the configuration
-    moment.tz.setDefault(s.TZ);
+    moment.tz.setDefault('Africa/Nairobi');
 
     // Create a date and time in the configured timezone
     const temps = moment().format('HH:mm:ss');
@@ -137,8 +137,8 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 let beltahmsg = `BELTAH XBOT MENU LIST\n\n> POWERED BY BELTAH HACKING TEAM.`;
     
     try {
-        await zk.sendMessage(dest, { 
-            text: beltamsg ,
+        await zk.sendMessage(dest,infoMsg + menuMsg, { 
+            text: beltahmsg ,
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
                showAdAttribution: true,

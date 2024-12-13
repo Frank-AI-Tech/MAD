@@ -137,7 +137,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     
     try {
         await zk.sendMessage(dest, { 
-            text: infomsg + menuMsg,
+            text: infoMsg + menuMsg,
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
                showAdAttribution: true,

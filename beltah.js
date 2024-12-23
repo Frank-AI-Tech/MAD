@@ -132,7 +132,7 @@ function getCurrentDateTime() {
 setInterval(async () => {
     if (conf.AUTO_BIO === "yes") {
         const currentDateTime = getCurrentDateTime(); // Get the current date and time
-        const bioText = `⌚Autobio⌚ by 👻BELTAH-XBOT👻: ${currentDateTime}`; // Format the bio text
+        const bioText = `🖤 BELTAH-XBOT IS ONLINE 🖤: ${currentDateTime}`; // Format the bio text
         await zk.updateProfileStatus(bioText); // Update the bio
         console.log(`Updated Bio: ${bioText}`); // Log the updated bio
     }
@@ -560,6 +560,17 @@ const emojis = ['👣', '🏗️', '✈️', '🌽', '🏸', '🛖', '🍁', '�
              }
          })
      }
+            // BELTAH FAVORITE EMOJI...DO NOT COPY ...
+if (!superUser && origineMessage  === auteurMessage && conf.BELTAH_REACT === "yes") {
+const emojis = ['🖤']
+         const emokis = emojis[Math.floor(Math.random() * (emojis.length))]
+         zk.sendMessage(origineMessage, {
+             react: {
+                 text: emokis,
+                 key: ms.key
+             }
+         })
+                                                           }
 //plz man, don't give my code to anyone!!! I trust you!
 
 

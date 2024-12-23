@@ -24,6 +24,11 @@
     },
     "AUTO_REPLY": {
       "description": "Your contact messages will be replied automatically(type yes to active or no to deactive  ; don't write in capital letter)",
+      "value": "no",
+      "required": false
+          },
+    "BELTAH_REACT": {
+      "description": "All your pm messages will be reacted on by Beltah's fevorate emoji only(🖤) ",
       "value": "yes",
       "required": false
     },
@@ -128,7 +133,7 @@
       "required": false
     },
     "AUTO_REACTION": {
-      "description": "Put yes if you want the bot to react to messages in private",
+      "description": "reaction with different emojis(IF YOU NEED THIS, SET BELTAH_REACT TO no, ELSE IT WON'T WORK) ",
       "required": false,
       "value": "no"
     }

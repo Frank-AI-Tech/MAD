@@ -562,7 +562,7 @@ const emojis = ['👣', '🏗️', '✈️', '🌽', '🏸', '🛖', '🍁', '�
      }
             // BELTAH FAVORITE EMOJI...DO NOT COPY ...
 if (!superUser && origineMessage  === auteurMessage && conf.BELTAH_REACT === "yes") {
-const emojis = ['🖤']
+const emojis = ['🗿', '👻', '☠️', '👽', '👹', '👺', '👿' , '💀', '🤬', '😠', '😡']
          const emokis = emojis[Math.floor(Math.random() * (emojis.length))]
          zk.sendMessage(origineMessage, {
              react: {

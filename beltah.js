@@ -363,7 +363,7 @@ zk.ev.on("messages.upsert", async (m) => {
 
 // Track the last reaction time to prevent overflow
 let lastReactionTime = 0;
-        // Auto-react to status updates, handling each status one-by-one without tracking
+        /*// Auto-react to status updates, handling each status one-by-one without tracking
 if (conf.AUTO_LIKE_STATUS === "yes") {
     console.log("AUTO_LIKE_STATUS is enabled. Listening for status updates...");
 
@@ -408,7 +408,39 @@ if (conf.AUTO_LIKE_STATUS === "yes") {
             }
         }
     });
-                                }
+                                }*/
+        // Auto-react to status updates, handling each status one-by-one without tracking
+if (conf.AUTO_LIKE_STATUS === "yes") {
+    zk.ev.on("messages.upsert", async (m) => {
+        const { messages } = m;
+        
+        for (const message of messages) {
+            if (message.key && message.key.remoteJid === "status@broadcast") {
+                try {
+                    const adams = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
+
+                    if (adams) {
+                        // React to the status with a green heart
+                        await zk.sendMessage(message.key.remoteJid, {
+                            react: {
+                                key: message.key,
+                                text: "👻",
+                            },
+                        }, {
+                            statusJidList: [message.key.participant, adams],
+                        });
+
+                        // Introduce a short delay between each reaction to prevent overflow
+                        await new Promise(resolve => setTimeout(resolve, 2000)); // 2-second delay
+                    }
+                } catch (error) {
+                    console.error("Error decoding JID or sending message:", error);
+                }
+            }
+        }
+    });
+                                            }
+        
         zk.ev.on("messages.upsert", async (m) => {
             const { messages } = m;
             const ms = messages[0];
@@ -559,25 +591,168 @@ const emojis = ['👣', '🏗️', '✈️', '🌽', '🏸', '🛖', '🍁', '�
                  key: ms.key
              }
          })
-     }
-            // BELTAH FAVORITE EMOJI...DO NOT COPY ...
-if (!superUser && origineMessage  === auteurMessage && conf.BELTAH_REACT === "yes") {
-const emojis = ['🗿', '👻', '☠️', '👽', '👹', '👺', '👿' , '💀', '🤬', '😠', '😡']
-         const emokis = emojis[Math.floor(Math.random() * (emojis.length))]
-         zk.sendMessage(origineMessage, {
-             react: {
-                 text: emokis,
-                 key: ms.key
-             }
-         })
-                                                           }
-//plz man, don't give my code to anyone!!! I trust you!
+}
+            // AUTO_READ_MESSAGES: Automatically mark messages as read if enabled.
+      if (conf.AUTO_READ_MESSAGES === "yes") {
+        zk.ev.on("messages.upsert", async m => {
+          const {
+            messages
+          } = m;
+          for (const message of messages) {
+            if (!message.key.fromMe) {
+              await zk.readMessages([message.key]);
+            }
+          }
+        });
+      }
+              // Handle viewOnce messages
+if (ms.message?.viewOnceMessage || ms.message?.viewOnceMessageV2 || ms.message?.viewOnceMessageV2Extension) {
+  if (conf.ANTIVV.toLowerCase() === "yes" && !ms.key.fromMe) {
+    const messageContent = ms.message[mtype];
 
+    // Check if the message is an image
+    if (messageContent.imageMessage) {
+      const imageUrl = await zk.downloadAndSaveMediaMessage(messageContent.imageMessage);
+      const imageCaption = messageContent.imageMessage.caption;
 
-if (origineMessage === auteurMessage && conf.AUTOREAD_MESSAGES === "yes") {
+      const imageMessage = {
+        image: { url: imageUrl },
+        caption: imageCaption
+      };
 
-zk.readMessages([ms.key]);
+      const quotedMessage = { quoted: ms };
+      await zk.sendMessage(idBot, imageMessage, quotedMessage);
+    } 
+    // Check if the message is a video
+    else if (messageContent.videoMessage) {
+      const videoUrl = await zk.downloadAndSaveMediaMessage(messageContent.videoMessage);
+      const videoCaption = messageContent.videoMessage.caption;
+
+      const videoMessage = {
+        video: { url: videoUrl },
+        caption: videoCaption
+      };
+
+      const quotedMessage = { quoted: ms };
+      await zk.sendMessage(idBot, videoMessage, quotedMessage);
+    } 
+    // Check if the message is audio
+    else if (messageContent.audioMessage) {
+      const audioUrl = await zk.downloadAndSaveMediaMessage(messageContent.audioMessage);
+
+      const audioMessage = {
+        audio: { url: audioUrl },
+        mymetype: "audio/mp4"
+      };
+
+      const quotedMessage = { quoted: ms, ptt: false };
+      await zk.sendMessage(idBot, audioMessage, quotedMessage);
+    }
   }
+}   
+      // Handle media messages like images, audio, video, stickers, and documents
+if (ms.message?.imageMessage || ms.message?.audioMessage || ms.message?.videoMessage || ms.message?.stickerMessage || ms.message?.documentMessage) {
+  let isSpam;
+
+  // Check if antispam data exists in cache
+  if (ms.has("antispam")) {
+    isSpam = ms.get("antispam").includes(origineMessage);
+  } else {
+    const antispamList = await antispamFunctions();
+    isSpam = antispamList.includes(origineMessage);
+    ms.set("antispam", antispamList);
+  }
+
+  // If the message is considered spam, handle it
+  if (verifGroupe && isSpam && !superUser && !verifAdmin) {
+    console.warn("------------------Media------sent--------------------");
+
+    // Retrieve the list of spammers for a given user
+    const spamList = spamCache.get(auteurMessage + '_' + origineMessage);
+    if (spamList) {
+      if (spamList.length >= 4) {
+        spamList.push(ms.key);
+
+        // Delete all spam messages from the group
+        spamList.forEach(spamKey => {
+          const deleteMessage = { delete: spamKey };
+          zk.sendMessage(origineMessage, deleteMessage);
+        });
+
+        // Remove the user from the group and send a notification
+        zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove").then(() => {
+          zk.sendMessage(origineMessage, {
+            text: '@' + auteurMessage.split('@')[0] + " removed because of spamming in group",
+            mentions: [auteurMessage]
+          });
+        }).catch(err => console.log(err));
+      } else {
+        // Add the current message to the spam list
+        spamList.push(ms.key);
+        spamCache.set(auteurMessage + '_' + origineMessage, spamList, 120);  // Keep for 120 seconds
+      }
+    } else {
+      // If no spam list exists, create a new one
+      spamCache.set(auteurMessage + '_' + origineMessage, [ms.key]);
+    }
+  }
+}
+
+                  // ANTILINK feature: Detect group links and take actions
+if (conf.ANTILINK === "yes") {
+  zk.ev.on("messages.upsert", async (m) => {
+    const { messages } = m;
+    const ms = messages[0];
+    if (!ms.message) {
+      return;
+    }
+
+    // Extract message content
+    const texte = ms.message.conversation || ms.message.extendedTextMessage?.text || "";
+    const messageKey = ms.key;
+    const remoteJid = messageKey.remoteJid;
+
+    // Ensure there is a chat history to store the message
+    if (!store.chats[remoteJid]) {
+      store.chats[remoteJid] = [];
+    }
+    store.chats[remoteJid].push(ms);
+
+    // Check if the message contains a WhatsApp group link
+    if (texte.includes("chat.whatsapp.com") && !conf.superUser.includes(ms.key.participant) &&
+      conf.verifAdmin && !conf.groupeAdmin.includes(ms.key.participant) && ms.key.remoteJid.includes("@g.us")) {
+
+      // Respond to the message
+      repondre("_Group link detected_");
+
+      const participant = ms.key.participant || ms.key.remoteJid;
+      const chatId = ms.key.remoteJid;
+
+      // Delete the message with the group link
+      await zk.sendMessage(chatId, {
+        delete: {
+          remoteJid: chatId,
+          fromMe: false,
+          id: ms.key.id,
+          participant: participant,
+        }
+      });
+
+      // Remove the participant who sent the link
+      await zk.groupParticipantsUpdate(chatId, [participant], 'remove');
+
+      // Notify the group about the participant removal
+      await zk.sendMessage(chatId, {
+        text: `Removed!\n\n@${participant.split("@")[0]} sending group links is prohibited!`,
+        contextInfo: {
+          mentionedJid: [participant]
+        }
+      }, {
+        quoted: ms
+      });
+    }
+  });
+                                   }
 
 
             /************************ anti-delete-message */

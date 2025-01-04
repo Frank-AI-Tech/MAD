@@ -132,7 +132,7 @@ function getCurrentDateTime() {
 setInterval(async () => {
     if (conf.AUTO_BIO === "yes") {
         const currentDateTime = getCurrentDateTime(); // Get the current date and time
-        const bioText = `🖤 BELTAH-XBOT IS ONLINE 🖤: ${currentDateTime}`; // Format the bio text
+        const bioText =' 👻 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 is Active 👻: ${currentDateTime}`; // Format the bio text
         await zk.updateProfileStatus(bioText); // Update the bio
         console.log(`Updated Bio: ${bioText}`); // Log the updated bio
     }
@@ -147,7 +147,7 @@ setInterval(async () => {
 
     await zk.rejectCall(callId, callerId);
     await zk.sendMessage(callerId, {
-      text: "Hello🥹,am *𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓* a personal assistant. *!!! NO CALLS ALLOWED!!!*"
+      text: " *𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓* Doesn't allow calls⛔🚫. *!!KINDLY TEXT!!!*"
     });
   }
 });
@@ -361,9 +361,139 @@ zk.ev.on("messages.upsert", async (m) => {
                    
    const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+// Load the reply messages from the JSON file
+const loadReplyMessages = () => {
+  try {
+    const filePath = path.join(__dirname, 'database', 'chatbot.json');
+    const data = fs.readFileSync(filePath, 'utf8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error loading chatbot responses:', error.message);
+    return {}; // Return an empty object if there is an error
+  }
+};
+
+// Track the time of the last response to enforce rate-limiting
+let lastReplyTime = 0;
+
+// Define the minimum delay (in milliseconds) between replies (e.g., 5 seconds)
+const MIN_REPLY_DELAY = 5000;
+
+// Function to find a matching text reply based on the message
+const getReplyMessage = (messageText, replyMessages) => {
+  // Convert the message to lowercase and split it into words
+  const words = messageText.toLowerCase().split(/\s+/);
+
+  // Check if any of the words match a keyword in the replyMessages object
+  for (const word of words) {
+    if (replyMessages[word]) {
+      return replyMessages[word]; // Return the matching reply
+    }
+  }
+
+  return null; // Return null if no match is found
+};
+
+// Listen for incoming messages when CHAT_BOT is enabled
+if (conf.CHAT_BOT === 'yes') {
+  console.log('CHAT_BOT is enabled. Listening for messages...');
+  
+  zk.ev.on('messages.upsert', async (event) => {
+    try {
+      const { messages } = event;
+      
+      // Load the replies from the JSON file
+      const replyMessages = loadReplyMessages();
+
+      // Iterate over incoming messages
+      for (const message of messages) {
+        if (!message.key || !message.key.remoteJid) {
+          continue; // Skip if there's no remoteJid
+        }
+
+        const messageText = message.message?.conversation || message.message?.extendedTextMessage?.text || '';
+        const replyMessage = getReplyMessage(messageText, replyMessages);
+
+        // Ensure we don't send replies too frequently
+        const currentTime = Date.now();
+        if (currentTime - lastReplyTime < MIN_REPLY_DELAY) {
+          console.log('Rate limit applied. Skipping reply.');
+          continue; // Skip this reply if the delay hasn't passed
+        }
+
+        if (replyMessage) {
+          try {
+            // Send the corresponding text reply
+            await zk.sendMessage(message.key.remoteJid, {
+              text: replyMessage
+            });
+            console.log(`Text reply sent: ${replyMessage}`);
+
+            // Update the last reply time
+            lastReplyTime = currentTime;
+          } catch (error) {
+            console.error(`Error sending text reply: ${error.message}`);
+          }
+        } else {
+          console.log('No matching keyword detected. Skipping message.');
+        }
+
+        // Wait for a brief moment before processing the next message (3 seconds delay)
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+      }
+    } catch (error) {
+      console.error('Error in message processing:', error.message);
+    }
+  });
+    }
+        // AUTO_REACT: React to messages with random emoji if enabled.
+if (conf.AUTO_REACT === "yes") {
+  zk.ev.on("messages.upsert", async m => {
+    const { messages } = m;
+
+    // Load emojis from the JSON file
+    const emojiFilePath = path.resolve(__dirname, 'database', 'emojis.json');
+    let emojis = [];
+    
+    try {
+      // Read the emojis from the file
+      const data = fs.readFileSync(emojiFilePath, 'utf8');
+      emojis = JSON.parse(data); // Parse the JSON data into an array
+    } catch (error) {
+      console.error('Error reading emojis file:', error);
+      return;
+    }
+
+    // Process each message
+    for (const message of messages) {
+      if (!message.key.fromMe) {
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        
+        // React to the message with a random emoji
+        await zk.sendMessage(message.key.remoteJid, {
+          react: {
+            text: randomEmoji,
+            key: message.key
+          }
+        });
+      }
+    }
+  });
+}
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 // Track the last reaction time to prevent overflow
 let lastReactionTime = 0;
-        // Auto-react to status updates, handling each status one-by-one without tracking
+
+// Array of love emojis to react with
+const loveEmojis = ["❤️", "💖", "💘", "💝", "💓", "💌", "💕", "😎", "🔥", "💥", "💯", "✨", "🌟", "🌈", "⚡", "💎", "🌀", "👑", "🎉", "🎊", "🦄", "👽", "🛸", 
+  "🚀", "🦋", "💫", "🍀", "🎶", "🎧", "🎸", "🎤", "🏆", "🏅", "🌍", "🌎", "🌏", "🎮", "🎲", "💪", 
+  "🏋️", "🥇", "👟", "🏃", "🚴", "🚶", "🏄", "⛷️", "🕶️", "🧳", "🍿", "🍿", "🥂", "🍻", "🍷", "🍸", 
+  "🥃", "🍾", "🎯", "⏳", "🎁", "🎈", "🎨", "🌻", "🌸", "🌺", "🌹", "🌼", "🌞", "🌝", "🌜", "🌙", 
+  "🌚", "🍀", "🌱", "🍃", "🍂", "🌾", "🐉", "🐍", "🦓", "🦄", "🦋", "🦧", "🦘", "🦨", "🦡", "🐉", 
+  "🐅", "🐆", "🐓", "🐢", "🐊", "🐠", "🐟", "🐡", "🦑", "🐙", "🦀", "🐬", "🦕", "🦖", "🐾", "🐕", 
+  "🐈", "🐇", "🐾"];
+
 if (conf.AUTO_LIKE_STATUS === "yes") {
     console.log("AUTO_LIKE_STATUS is enabled. Listening for status updates...");
 
@@ -383,31 +513,36 @@ if (conf.AUTO_LIKE_STATUS === "yes") {
                 }
 
                 // Check if bot user ID is available
-                const beltah = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
-                if (!beltah) {
+                const keith = zk.user && zk.user.id ? zk.user.id.split(":")[0] + "@s.whatsapp.net" : null;
+                if (!keith) {
                     console.log("Bot's user ID not available. Skipping reaction.");
                     continue;
                 }
 
-                // React to the status with a green heart
+                // Select a random love emoji
+                const randomLoveEmoji = loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
+
+                // React to the status with the selected love emoji
                 await zk.sendMessage(message.key.remoteJid, {
                     react: {
                         key: message.key,
-                        text: "🖤", // Reaction emoji
+                        text: randomLoveEmoji, // Reaction emoji
                     },
                 }, {
-                    statusJidList: [message.key.participant, beltah],
+                    statusJidList: [message.key.participant], // Add other participants if needed
                 });
 
                 // Log successful reaction and update the last reaction time
                 lastReactionTime = Date.now();
-                console.log(`Successfully reacted to status update by ${message.key.remoteJid}`);
+                console.log(`Successfully reacted to status update by ${message.key.remoteJid} with ${randomLoveEmoji}`);
 
                 // Delay to avoid rapid reactions
                 await delay(2000); // 2-second delay between reactions
             }
         }
     });
+}
+
                                 }
         zk.ev.on("messages.upsert", async (m) => {
             const { messages } = m;
@@ -549,7 +684,7 @@ function mybotpic() {
             
             };
                  
-// BELTAH MD DID EVERYTHING ,,,DO NOT COPY ...
+/*// BELTAH MD DID EVERYTHING ,,,DO NOT COPY ...
 if (!superUser && origineMessage  === auteurMessage && conf.AUTO_REACT === "yes") {
 const emojis = ['👣', '🏗️', '✈️', '🌽', '🏸', '🛖', '🍁', '🛰️', '🥔', '🎡', '🎸', '🎼', '🔉', '📿', '🪇', '📹', '🎞️', '🪔', '📔', '🏷️', '💰', '📥', '🗳️', '📭', '🖌️', '📏', '', '🪛', '🔨', '⛓️‍💥', '📌', '🗝️', '🔍', '🥁', '🔊', '🥾', '👢', '🩰', '👡', '🙂', '🎊', '🎉', '🎁', '⛑️', '👋']
          const emokis = emojis[Math.floor(Math.random() * (emojis.length))]
@@ -577,8 +712,75 @@ const emojis = ['🗿', '👻', '☠️', '👽', '👹', '👺', '👿' , '💀
 if (origineMessage === auteurMessage && conf.AUTOREAD_MESSAGES === "yes") {
 
 zk.readMessages([ms.key]);
-  }
+  }*/
+// AUTO_READ_MESSAGES: Automatically mark messages as read if enabled.
+      if (conf.AUTO_READ_MESSAGES === "yes") {
+        zk.ev.on("messages.upsert", async m => {
+          const {
+            messages
+          } = m;
+          for (const message of messages) {
+            if (!message.key.fromMe) {
+              await zk.readMessages([message.key]);
+            }
+          }
+        });
+      }
+            // ANTILINK feature: Detect group links and take actions
+if (conf.ANTILINK === "yes") {
+  zk.ev.on("messages.upsert", async (m) => {
+    const { messages } = m;
+    const ms = messages[0];
+    if (!ms.message) {
+      return;
+    }
 
+    // Extract message content
+    const texte = ms.message.conversation || ms.message.extendedTextMessage?.text || "";
+    const messageKey = ms.key;
+    const remoteJid = messageKey.remoteJid;
+
+    // Ensure there is a chat history to store the message
+    if (!store.chats[remoteJid]) {
+      store.chats[remoteJid] = [];
+    }
+    store.chats[remoteJid].push(ms);
+
+    // Check if the message contains a WhatsApp group link
+    if (texte.includes("chat.whatsapp.com") && !conf.superUser.includes(ms.key.participant) &&
+      conf.verifAdmin && !conf.groupeAdmin.includes(ms.key.participant) && ms.key.remoteJid.includes("@g.us")) {
+
+      // Respond to the message
+      repondre("_Group link detected_");
+
+      const participant = ms.key.participant || ms.key.remoteJid;
+      const chatId = ms.key.remoteJid;
+
+      // Delete the message with the group link
+      await zk.sendMessage(chatId, {
+        delete: {
+          remoteJid: chatId,
+          fromMe: false,
+          id: ms.key.id,
+          participant: participant,
+        }
+      });
+
+      // Remove the participant who sent the link
+      await zk.groupParticipantsUpdate(chatId, [participant], 'remove');
+
+      // Notify the group about the participant removal
+      await zk.sendMessage(chatId, {
+        text: `XBOT Removed! @${participant.split("@")[0]} \n\nSending group links is prohibited!\n\n> POWERED BY BELTAH HACKING TEAM`,
+        contextInfo: {
+          mentionedJid: [participant]
+        }
+      }, {
+        quoted: ms
+      });
+    }
+  });
+}
 
             /************************ anti-delete-message */
 

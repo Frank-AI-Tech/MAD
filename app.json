@@ -1,6 +1,6 @@
 {
-  "name": "😡 BELTAH-MD 😡",
-  "description": "This BOT was developed by Beltah.",
+  "name": "⭕ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕",
+  "description": "This BOT was developed by Beltah Tech 👻.",
   "keywords": [
     "bot",
     "node",
@@ -27,23 +27,23 @@
       "value": "no",
       "required": false
           },
-    "BELTAH_REACT": {
-      "description": "All your pm messages will be reacted on by Beltah's fevorate emoji only(🖤) ",
+    "ANTIVV": {
+      "description": "Detect all view once media and send them to your dm",
       "value": "yes",
       "required": false
     },
     "AUTO_BIO": {
-      "description": "Set live time bio(type yes to active or no to deactive  ; don't write in capital letter)",
+      "description": "Set live time bio.",
       "value": "yes",
       "required": false
     },
     "AUTO_SAVE_CONTACTS": {
-      "description": "Your contacts will be saved automatically(type yes to active or no to deactive  ; don't write in capital letter)",
+      "description": "Your contacts will be saved automatically. ",
       "value": "yes",
       "required": false
     },
     "ANTIDELETEDM": {
-      "description": "deleted messages will be sent to pm(type yes to active or no to deactive  ; don't write in capital letter)",
+      "description": "deleted messages will be detected lively.and sent directly after deletion",
       "value": "yes",
       "required": false
     },
@@ -53,10 +53,15 @@
       "required": false
     },
     "AUTOREAD_MESSAGE": {
-      "description": "Your messages will be read automatically(type yes to active or no to deactive  ; don't write in capital letter)",
+      "description": "Show bluetick after message is received.(type yes to active or no to deactive  ; don't write in capital letter)",
       "value": "no",
       "required": false
     },
+    "ANTILINK" : {
+      "description" : "detect links and remove link senders to group", 
+      "value" : "yes", 
+      "required" : false
+     }, 
     "ANTICALL": {
       "description": "no calls on WhatsApp...reject automatically(type yes to active or no to deactive  ; don't write in capital letter)",
       "value": "no",
@@ -67,6 +72,11 @@
       "value": "yes",
       "required": false
     },
+    "CHAT_BOT" : {
+      "description" : "active bot to reply all messages received in pm", 
+      "value" : "no", 
+     "required" :false
+     }, 
     "PM_PERMIT": {
       "description": "Other user can't use your bot in pm (type yes to active or no to deactive ; don't write in capital letter)",
       "value": "no",
@@ -76,11 +86,7 @@
       "description": "put A name for your bot",
       "value": "BELTAH-MD",
       "required": false
-    },
-    "BOT_MENU_LINKS": {
-      "description": "add one or many link for your bot menu  ; eg : url1,url2,url3.....",
-      "value":"",
-      "required": false
+  
     },
     "PUBLIC_MODE": {
       "description": "type yes to put your bot on public mode or no to put it on private mod",
@@ -108,7 +114,7 @@
       "value": "𝐁𝐞𝐥𝐭𝐚𝐡 𝐤𝐞"
     },
     "NUMERO_OWNER": {
-      "desc": "Your number , dont put '+' and put you area code(exemple of togo '228')",
+      "desc": "Your number , dont put '+' and put you area code(exemple '254')",
       "required": false,
       "value": "254114141192"
     },

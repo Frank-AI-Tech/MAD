@@ -9,7 +9,7 @@ const DATABASE_URL = process.env.DATABASE_URL === undefined
     : process.env.DATABASE_URL;
 module.exports = { session: process.env.SESSION_ID || 'BELTAH-MD;;;',
     PREFIXE: process.env.PREFIX || "+",
-    GITHUB : process.env.GITHUB|| 'https://github.com/Huaweike/BELTAH-MD',
+    CHAT_BOT : process.env.CHAT_BOT|| "non",
     OWNER_NAME : process.env.OWNER_NAME || "Beltah Tech",
     NUMERO_OWNER : process.env.NUMERO_OWNER || "254114141192",
     ANTICALL: process.env.ANTICALL || "non",

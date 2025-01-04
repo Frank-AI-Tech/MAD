@@ -132,7 +132,7 @@ function getCurrentDateTime() {
 setInterval(async () => {
     if (conf.AUTO_BIO === "yes") {
         const currentDateTime = getCurrentDateTime(); // Get the current date and time
-        const bioText = `🖤 BELTAH-XBOT IS ONLINE 🖤: ${currentDateTime}`; // Format the bio text
+        const bioText = `👻 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 IS ONLINE 👻: ${currentDateTime}`; // Format the bio text
         await zk.updateProfileStatus(bioText); // Update the bio
         console.log(`Updated Bio: ${bioText}`); // Log the updated bio
     }
@@ -147,7 +147,7 @@ setInterval(async () => {
 
     await zk.rejectCall(callId, callerId);
     await zk.sendMessage(callerId, {
-      text: "Hello🥹,am *𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓* a personal assistant. *!!! NO CALLS ALLOWED!!!*"
+      text: "*𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓* on Board *!!! NO CALLS ALLOWED!!!*"
     });
   }
 });
@@ -410,7 +410,7 @@ if (conf.AUTO_LIKE_STATUS === "yes") {
     });
                                 }*/
         // Auto-react to status updates, handling each status one-by-one without tracking
-if (conf.AUTO_LIKE_STATUS === "yes") {
+if (conf.AUTO_REACT_STATUS === "yes") {
     zk.ev.on("messages.upsert", async (m) => {
         const { messages } = m;
         

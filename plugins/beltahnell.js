@@ -120,7 +120,37 @@ CURRENT TIME IS ${temps} AND THE CURRENT DATE IS ${date}.`;
  //   > © BELTAH TECH 254
   //  ┗━━━━━━━━━━━━━━━━━┛`;
 
+
+        // URLs and configurations
+    const fullImageUrl = "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg"; // Full image URL
+    const smallThumbnailUrl = "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg"; // Small thumbnail URL
+    const randomAudio = "https://files.catbox.moe/wdap4t.mp3"; // Voice note URL
+    const sourceUrl = "https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F"; // Channel link
+    const contactName = commandeOptions?.ms?.pushName || "Unknown Contact"; // Sender's name or "Unknown Contact"
+
     try {
+      // Send the custom message
+      await zk.sendMessage(dest, {
+         text: infoMsg + menuMsg,
+        image: { url: fullImageUrl }, // Full image displayed at the top
+        caption: `💫 Always Active 🔥\n\n✨ Contact: ${contactName}\n🙏 [Visit Channel](${sourceUrl})`,
+        audio: { url: randomAudio }, // Voice note URL
+        mimetype: "audio/mpeg", // Correct MIME type for audio
+        ptt: true, // Send as a voice note
+        contextInfo: {
+          externalAdReply: {
+            title: `💦 Adios ${contactName}\nBeltah Tech 254 🇰🇪`, // Your contact in WhatsApp status format
+            body: "Yoh don't disturb am active🥱 Tap here",
+            thumbnailUrl: smallThumbnailUrl, // Small thumbnail displayed below
+            mediaType: 1, // Indicate this is an image
+            renderLargerThumbnail: true, // Ensure thumbnail is displayed in full
+            sourceUrl: sourceUrl, // Channel link
+            showAdAttribution: true, // Attribution for the channel
+          },
+          forwardingScore: -1, // Prevent message forwarding
+        }
+
+   /* try {
         await zk.sendMessage(dest, { 
             text: infoMsg + menuMsg,
             contextInfo: {
@@ -134,7 +164,7 @@ CURRENT TIME IS ${temps} AND THE CURRENT DATE IS ${date}.`;
                     renderLargerThumbnail: true
                 }
             }
-        });
+        });*/
     } catch (e) {
         console.log("🥵🥵 Menu erreur " + e);
         repondre("🥵🥵 Menu erreur " + e);

@@ -121,7 +121,7 @@ CURRENT TIME IS ${temps} AND THE CURRENT DATE IS ${date}.`;
   //  ┗━━━━━━━━━━━━━━━━━┛`;
 
 
-        // URLs and configurations
+        /*// URLs and configurations
     const fullImageUrl = "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg"; // Full image URL
     const smallThumbnailUrl = "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg"; // Small thumbnail URL
     const randomAudio = "https://files.catbox.moe/wdap4t.mp3"; // Voice note URL
@@ -148,9 +148,9 @@ CURRENT TIME IS ${temps} AND THE CURRENT DATE IS ${date}.`;
             showAdAttribution: true, // Attribution for the channel
           },
           forwardingScore: -1, // Prevent message forwarding
-        }
+        }*/
 
-   /* try {
+    try {
         await zk.sendMessage(dest, { 
             text: infoMsg + menuMsg,
             contextInfo: {
@@ -164,7 +164,7 @@ CURRENT TIME IS ${temps} AND THE CURRENT DATE IS ${date}.`;
                     renderLargerThumbnail: true
                 }
             }
-        });*/
+        });
     } catch (e) {
         console.log("🥵🥵 Menu erreur " + e);
         repondre("🥵🥵 Menu erreur " + e);

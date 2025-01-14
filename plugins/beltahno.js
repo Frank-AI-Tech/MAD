@@ -71,15 +71,15 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     // Determine the greeting based on the current time
     const hour = moment().hour();
-    let greeting = "Merry Christmas🎄";
+    let greeting = "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 🌄, ʟᴇᴛ's ᴋɪᴄᴋsᴛᴀʀᴛ ʏᴏᴜʀ ᴅᴀʏ ✨";
     if (hour >= 0 && hour <= 11) {
-        greeting = "Happy Festive 🎅";
+        greeting = "ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 🌅, ʜᴏᴡ ɪs ʏᴏᴜʀ ᴅᴀʏ ɢᴏɪɴɢ 🎍";
     } else if (hour >= 12 && hour <= 16) {
-        greeting = "Merry Xmas 🎄";
+        greeting = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🌃, ɪ ʜᴏᴘᴇ ʏᴏᴜʀ ᴅᴀʏ ᴡᴀs ɢᴏᴏᴅ 🦋";
     } else if (hour >= 16 && hour <= 21) {
-        greeting = "Happy December 🎄";
+        greeting = "ɢᴏᴏᴅ ɴɪɢʜᴛ🌘, sᴡᴇᴇᴛ ᴅʀᴇᴀᴍs 💫";
     } else if (hour >= 21 && hour <= 23) {
-        greeting = "Santa Time 🎅";
+        greeting = "ɢᴏᴏᴅ ɴɪɢʜᴛ🌘, sᴡᴇᴇᴛ ᴅʀᴇᴀᴍs 💫";
     }
 
     // Fetch GitHub stats
@@ -87,26 +87,26 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     const formattedTotalUsers = totalUsers.toLocaleString();
 
     let infoMsg = `
-> *${greeting} ${nomAuteurMessage}*
+> *${greeting}*
 
 ┌══⊷✰❒⁠ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ❒⁠⁠⁠⁠✰══⊷
 ┊✣╭──────────────
-┊✣┊ *User :*  ${s.OWNER_NAME}
+┊✣┊ *Owner :*  ${s.OWNER_NAME}
 ┊✣┊ *Mode :* ${mode}
-┊✣┊ *Prefix :* ${s.PREFIXES} 
+┊✣┊ *Prefix :* ${s.PREFIXE} 
 ┊✣┊ *Time :* ${temps}
 ┊✣┊ *Date :* ${date} 
 ┊✣┊ *Time Zone :* Africa/Nairobi
 ┊✣┊ *Total Users :* 2607
 ┊✣┊ *Ram :* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())} 
 ┊✣┊ *Uptime :* ${runtime(process.uptime())} 
+┊✣┊ *Theme :* XBOT 2025
 ┊✣└───────────────
 ╰═════════════════⊷`;
 
-    let menuMsg = `
-┌─────────────
-┣ *BELTAH XBOT PLUGINS*
-└──────────────`;
+    let menuMsg =`╭═════════════════⊷
+┊✣┊ *User :*  ${nomAuteurMessage}
+╰═════════════════⊷`;
 
     // Sort categories alphabetically and generate menu
     const sortedCategories = Object.keys(coms).sort();
@@ -130,9 +130,9 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     }
 
     menuMsg += `
-    ┏┻━━━━━━━━━━━━━━━┻┓
-    > © BELTAH TECH 254
-    ┗━━━━━━━━━━━━━━━━━┛`;
+┏┻━━━━━━━━━━━━━━━┻┓
+> © BELTAH TECH 👻 
+┗━━━━━━━━━━━━━━━━━┛`;
 
     
     try {
@@ -142,7 +142,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
                 mentionedJid: [nomAuteurMessage],
                showAdAttribution: true,
                 externalAdReply: {
-                    title: "⭕🛑 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕🛑 ",
+                    title: "⭕ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕",
                     body: "BELTAH XBOT SYSTEM SETTINGS",
                     thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
                     sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',

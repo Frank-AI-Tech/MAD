@@ -11,7 +11,7 @@ const { zokou } = require('../framework/zokou');
 zokou ({
     nomCom: "repo",
     aliases: ["sc", "script"], // Adding aliases
-    reaction: "📖",
+    reaction: "👻",
     nomFichier: __filename
 }, async (dest, zk, commandeOptions) => {
     const githubRepo = 'https://api.github.com/repos/Beltah254/X-BOT';
@@ -33,14 +33,23 @@ zokou ({
             const releaseDate = new Date(data.created_at).toLocaleDateString('en-GB');
             //const updateDate = new Date(data.updated_at).toLocaleDateString('en-GB');
 
-            const gitdata = `ʜᴇʟʟᴏ👋, ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ xʙᴏᴛ ʀᴇᴘᴏsɪᴛᴏʀʏ ɪɴғᴏʀᴍᴀᴛɪᴏɴ. ғᴇᴇʟ ғʀᴇᴇ ᴛᴏ ᴅᴛᴀʀ ᴀɴᴅ ғᴏʀᴋ ᴏᴜʀ ʀᴇᴘᴏ.ᴋᴇɴʏᴀɴ ᴠᴇʀsɪᴏɴ ʙᴏᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ © ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 👻.\n
+            const gitdata = `
+╭───────────────━⊷
+║ 👻 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐑𝐄𝐏𝐎𝐒𝐈𝐓𝐎𝐑𝐘 👻
+╰───────────────━⊷
+╭───────────────━⊷
+║💡 *ɴᴀᴍᴇ:*ʙᴇʟᴛᴀʜ xʙᴏᴛ
+║⭐ *ᴛᴏᴛᴀʟ sᴛᴀʀs:* ${repoInfo.stars}
+║🍴 *ᴛᴏᴛᴀʟ ғᴏʀᴋs:* ${repoInfo.forks}
+║👀 *ᴡᴀᴛᴄʜᴇʀs:* 32
+║❗ *ᴏᴘᴇɴ ɪssᴜᴇs:* 3
+║👤 *ᴏᴡɴᴇʀ:* ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 👻
+╰───────────────━⊷
+╭───────────────━⊷
+║ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ : ${releaseDate}
+║ ʀᴇᴘᴏ ʟɪɴᴋ: ${data.html_url}] 
+╰───────────────━⊷
 
-[🗼] ғᴏʀᴋs :${repoInfo.forks}
-[✨] sᴛᴀʀs :${repoInfo.stars}
-[📅] ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ : ${releaseDate}
-[🧧] ғᴏʀᴋ xʙᴏᴛ ʀᴇᴘᴏsɪᴛᴏʀʏ ɴᴏᴡ
- [${data.html_url}] 
-[👨‍💻] ᴅᴇᴠᴇʟᴏᴘᴇʀ : ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ👻
 _________________________________
 > 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐞𝐥𝐭𝐚𝐡 𝐇𝐚𝐜𝐤𝐢𝐧𝐠 𝐓𝐞𝐚𝐦`;
 
@@ -49,7 +58,7 @@ _________________________________
                 contextInfo: {
                     mentionedJid: [auteurMessage],
                     externalAdReply: {
-                        title: "⭕ 𝐗𝐁𝐎𝐓 𝐑𝐄𝐏𝐎𝐒𝐈𝐓𝐎𝐑𝐘 𝐃𝐄𝐓𝐀𝐈𝐋𝐒 ⭕",
+                        title: " 𝐗𝐁𝐎𝐓 𝐑𝐄𝐏𝐎 𝐃𝐄𝐓𝐀𝐈𝐋𝐒",
                         body: "𝐓𝐚𝐩 𝐇𝐞𝐫𝐞 𝐭𝐨 𝐟𝐨𝐥𝐥𝐨𝐰 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐨𝐫 𝐮𝐩𝐝𝐚𝐭𝐞𝐬",
                         thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
                         sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
@@ -67,3 +76,144 @@ _________________________________
         repondre("An error occurred while fetching the repository data.");
     }
 });
+
+// Register the command with new aliases
+zokou ({
+    nomCom: "sc",
+    aliases: ["repo", "script"], // Adding aliases
+    reaction: "👻",
+    nomFichier: __filename
+}, async (dest, zk, commandeOptions) => {
+    const githubRepo = 'https://api.github.com/repos/Beltah254/X-BOT';
+    const img = 'https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg';
+    const { repondre, auteurMessage } = commandeOptions;
+
+    try {
+        const response = await fetch(githubRepo);
+        const data = await response.json();
+
+        if (data) {
+            const repoInfo = {
+                stars: data.stargazers_count,
+                forks: data.forks_count,
+                update: data.updated_at,
+                owner: data.owner.login,
+            };
+
+            const releaseDate = new Date(data.created_at).toLocaleDateString('en-GB');
+            //const updateDate = new Date(data.updated_at).toLocaleDateString('en-GB');
+
+            const gitdata = `
+╭───────────────━⊷
+║ 👻 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐑𝐄𝐏𝐎𝐒𝐈𝐓𝐎𝐑𝐘 👻
+╰───────────────━⊷
+╭───────────────━⊷
+║💡 *ɴᴀᴍᴇ:*ʙᴇʟᴛᴀʜ xʙᴏᴛ
+║⭐ *ᴛᴏᴛᴀʟ sᴛᴀʀs:* ${repoInfo.stars}
+║🍴 *ᴛᴏᴛᴀʟ ғᴏʀᴋs:* ${repoInfo.forks}
+║👀 *ᴡᴀᴛᴄʜᴇʀs:* 32
+║❗ *ᴏᴘᴇɴ ɪssᴜᴇs:* 3
+║👤 *ᴏᴡɴᴇʀ:* ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 👻
+╰───────────────━⊷
+╭───────────────━⊷
+║ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ : ${releaseDate}
+║ ʀᴇᴘᴏ ʟɪɴᴋ: ${data.html_url}] 
+╰───────────────━⊷
+
+_________________________________
+> 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐞𝐥𝐭𝐚𝐡 𝐇𝐚𝐜𝐤𝐢𝐧𝐠 𝐓𝐞𝐚𝐦`;
+
+            await zk.sendMessage(dest, { 
+                text: gitdata,
+                contextInfo: {
+                    mentionedJid: [auteurMessage],
+                    externalAdReply: {
+                        title: " 𝐗𝐁𝐎𝐓 𝐑𝐄𝐏𝐎 𝐃𝐄𝐓𝐀𝐈𝐋𝐒",
+                        body: "𝐓𝐚𝐩 𝐇𝐞𝐫𝐞 𝐭𝐨 𝐟𝐨𝐥𝐥𝐨𝐰 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐨𝐫 𝐮𝐩𝐝𝐚𝐭𝐞𝐬",
+                        thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
+                        sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
+                        mediaType: 1,
+                        renderLargerThumbnail: true
+                    }
+                }
+            });
+        } else {
+            console.log("Could not fetch data");
+            repondre("An error occurred while fetching the repository data.");
+        }
+    } catch (error) {
+        console.error("Error fetching repository data:", error);
+        repondre("An error occurred while fetching the repository data.");
+    }
+});
+
+// Register the command with its aliases
+zokou ({
+    nomCom: "script",
+    aliases: ["repo", "sc"], // Adding aliases
+    reaction: "👻",
+    nomFichier: __filename
+}, async (dest, zk, commandeOptions) => {
+    const githubRepo = 'https://api.github.com/repos/Beltah254/X-BOT';
+    const img = 'https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg';
+    const { repondre, auteurMessage } = commandeOptions;
+
+    try {
+        const response = await fetch(githubRepo);
+        const data = await response.json();
+
+        if (data) {
+            const repoInfo = {
+                stars: data.stargazers_count,
+                forks: data.forks_count,
+                update: data.updated_at,
+                owner: data.owner.login,
+            };
+
+            const releaseDate = new Date(data.created_at).toLocaleDateString('en-GB');
+            //const updateDate = new Date(data.updated_at).toLocaleDateString('en-GB');
+
+            const gitdata = `
+╭───────────────━⊷
+║ 👻 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐑𝐄𝐏𝐎𝐒𝐈𝐓𝐎𝐑𝐘 👻
+╰───────────────━⊷
+╭───────────────━⊷
+║💡 *ɴᴀᴍᴇ:*ʙᴇʟᴛᴀʜ xʙᴏᴛ
+║⭐ *ᴛᴏᴛᴀʟ sᴛᴀʀs:* ${repoInfo.stars}
+║🍴 *ᴛᴏᴛᴀʟ ғᴏʀᴋs:* ${repoInfo.forks}
+║👀 *ᴡᴀᴛᴄʜᴇʀs:* 32
+║❗ *ᴏᴘᴇɴ ɪssᴜᴇs:* 3
+║👤 *ᴏᴡɴᴇʀ:* ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 👻
+╰───────────────━⊷
+╭───────────────━⊷
+║ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ : ${releaseDate}
+║ ʀᴇᴘᴏ ʟɪɴᴋ: ${data.html_url}] 
+╰───────────────━⊷
+
+_________________________________
+> 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐁𝐞𝐥𝐭𝐚𝐡 𝐇𝐚𝐜𝐤𝐢𝐧𝐠 𝐓𝐞𝐚𝐦`;
+
+            await zk.sendMessage(dest, { 
+                text: gitdata,
+                contextInfo: {
+                    mentionedJid: [auteurMessage],
+                    externalAdReply: {
+                        title: " 𝐗𝐁𝐎𝐓 𝐑𝐄𝐏𝐎 𝐃𝐄𝐓𝐀𝐈𝐋𝐒",
+                        body: "𝐓𝐚𝐩 𝐇𝐞𝐫𝐞 𝐭𝐨 𝐟𝐨𝐥𝐥𝐨𝐰 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐨𝐫 𝐮𝐩𝐝𝐚𝐭𝐞𝐬",
+                        thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
+                        sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
+                        mediaType: 1,
+                        renderLargerThumbnail: true
+                    }
+                }
+            });
+        } else {
+            console.log("Could not fetch data");
+            repondre("An error occurred while fetching the repository data.");
+        }
+    } catch (error) {
+        console.error("Error fetching repository data:", error);
+        repondre("An error occurred while fetching the repository data.");
+    }
+});
+

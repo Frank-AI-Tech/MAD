@@ -104,7 +104,8 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 ┊✣└───────────────
 ╰═════════════════⊷`;
 
-    let menuMsg =`╭═════════════════⊷
+    let menuMsg =`
+╭═════════════════⊷
 ┊✣┊ *User :*  ${nomAuteurMessage}
 ╰═════════════════⊷`;
 
@@ -140,6 +141,11 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
             text: infoMsg + menuMsg,
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
+                forwardingScore: 999,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363284845910703@newsletter',
+                    newsletterName:' 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓', 
                showAdAttribution: true,
                 externalAdReply: {
                     title: "⭕ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕",

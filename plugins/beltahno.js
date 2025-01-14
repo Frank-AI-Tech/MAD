@@ -89,15 +89,15 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     let infoMsg = `
 > *${greeting}*
 
-┌══⊷✰❒⁠ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ❒⁠⁠⁠⁠✰══⊷
-┊✣╭──────────────
+┌════════════════⊷
+┊✣╭─────────────
 ┊✣┊ *Owner :*  ${s.OWNER_NAME}
 ┊✣┊ *Mode :* ${mode}
 ┊✣┊ *Prefix :* ${s.PREFIXE} 
 ┊✣┊ *Time :* ${temps}
 ┊✣┊ *Date :* ${date} 
 ┊✣┊ *Time Zone :* Africa/Nairobi
-┊✣┊ *Total Users :* 2607
+┊✣┊ *Total Users :* 2003
 ┊✣┊ *Ram :* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())} 
 ┊✣┊ *Uptime :* ${runtime(process.uptime())} 
 ┊✣┊ *Theme :* XBOT 2025
@@ -106,8 +106,11 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     let menuMsg =`
 ╭═════════════════⊷
-┊✣┊ *User :*  ${nomAuteurMessage}
-╰═════════════════⊷`;
+┊✣┊ *User:*  ${nomAuteurMessage}
+┊✣┊ *Bot name :* ʙᴇʟᴛᴀʜ xʙᴏᴛ
+┊✣┊ *Development :* ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 
+╰═════════════════⊷
+> © 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 2025`;
 
     // Sort categories alphabetically and generate menu
     const sortedCategories = Object.keys(coms).sort();
@@ -115,7 +118,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     for (const cat of sortedCategories) {
         menuMsg += `
-┌══⊷✰❒⁠${cat.toUpperCase()} ❒⁠⁠⁠⁠✰
+┌══⊷ 🙂‍↕️ ${cat.toUpperCase()} 🙂‍↔️══⊷ 
 ┊┌─────────────`;
 
         // Sort commands alphabetically within the category
@@ -123,7 +126,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
         for (const cmd of sortedCommands) {
             menuMsg += ` 
-┊┊➪︎︎ ${commandNumber++}. ${cmd}`;
+┊┊😑${commandNumber++}. ${cmd}`;
         }
         menuMsg += `
 ┊└─────────────
@@ -141,13 +144,10 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
             text: infoMsg + menuMsg,
             contextInfo: {
                 mentionedJid: [nomAuteurMessage],
-                forwardingScore: 999,
-                isForwarded: true,
-                forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363284845910703@newsletter',
-                    newsletterName:' 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓', 
                showAdAttribution: true,
                 externalAdReply: {
+                    title: "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓",
+                    body: "TAP HERE TO FOLLOW OUR CHANNEL",
                     thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
                     sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
                     mediaType: 1,

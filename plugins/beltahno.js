@@ -148,8 +148,6 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
                     newsletterName:' 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓', 
                showAdAttribution: true,
                 externalAdReply: {
-                    title: "⭕ 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 ⭕",
-                    body: "BELTAH XBOT SYSTEM SETTINGS",
                     thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
                     sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
                     mediaType: 1,

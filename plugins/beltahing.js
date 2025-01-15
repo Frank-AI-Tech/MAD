@@ -11,7 +11,7 @@ zokou({
   'nomCom': "ping",
   'desc': "To check bot response time",
   'Categorie': "General",
-  'reaction': '🥂',
+  'reaction': '👻',
   'fromMe': "true"
 }, async (_0x4cfdc6, _0x41d5d3, _0x546e3d) => {
   const {
@@ -20,11 +20,11 @@ zokou({
   const _0x5a815c = Array.from({
     'length': 0x3
   }, () => Math.floor(Math.random() * 10000 + 1000));
-  const _0x451c3b = _0x5a815c.map(_0x526b71 => "🔴 " + _0x526b71 + " 🔴").join("\n");
+  const _0x451c3b = _0x5a815c.map(_0x526b71 => "🔴" + _0x526b71 + "🔴").join("\n");
   const _0x41d2b1 = {
     'externalAdReply': {
       'title': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒",
-      'body': "ᴘɪɴɢ ʀᴇsᴜʟᴛs ⭕: " + _0x451c3b,
+      'body': "ᴘɪɴɢ : " + _0x451c3b,
       'sourceUrl': "https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F",
       'thumbnailUrl': "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
       'mediaType': 0x1,
@@ -36,7 +36,7 @@ zokou({
     'vcard': "BEGIN:VCARD\nVERSION:3.0\nFN:BELTAH \nORG:BELTAH Nexus;\nTEL;type=CELL;type=VOICE;waid=254114141192:254737681758 \nEND:VCARD"
   };
   await _0x41d5d3.sendMessage(_0x4cfdc6, {
-    'text': "🛸 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐏𝐄𝐄𝐃 🛸",
+    'text': "👻 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐏𝐄𝐄𝐃 👻",
     'contextInfo': _0x41d2b1,
     'contacts': {
       'displayName': "BELTAH XBOT Verified Contact",
@@ -50,7 +50,7 @@ zokou({
   'nomCom': "uptime",
   'desc': "To check runtime",
   'Categorie': "General",
-  'reaction': '⌚',
+  'reaction': '🌄',
   'fromMe': "true"
 }, async (_0x205206, _0x161605, _0x2fdaee) => {
   const {

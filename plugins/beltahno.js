@@ -231,24 +231,23 @@ zokou({ nomCom: "list", categorie: "General" }, async (dest, zk, commandeOptions
     menuMsg += `
 > © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ 👻`;
 
-    
-    try {
+   try {
         await zk.sendMessage(dest, { 
             text: infoMsg + menuMsg,
             contextInfo: {
-           mentionedJid: [nomAuteurMessage],
-          externalAdReply: {
-          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ʙᴏᴛ",
-          body: "ᴛᴀᴘ ʜᴇʀᴇ ᴛᴏ ғᴏʟʟᴏᴡ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ",
-          mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
-          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
-          renderLargerThumbnail: false,
-          showAdAttribution: true,
-        },
-      },
-    };
-        });
+                mentionedJid: [nomAuteurMessage],
+               showAdAttribution: true,
+                externalAdReply: {
+                    title: "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓",
+                    body: "ᴛᴀᴘ ʜᴇʀᴇ ᴛᴏ ғᴏʟʟᴏᴡ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ",
+                    thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
+                    mediaType: 1,
+                    renderLargerThumbnail: true
+                }
+            }
+        }); 
+    
     } catch (e) {
         console.log("🥵🥵 Menu erreur " + e);
         repondre("🥵🥵 Menu erreur " + e);

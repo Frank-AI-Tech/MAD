@@ -28,7 +28,7 @@ const runtime = function (seconds) {
 // Function to fetch GitHub repo data
 const fetchGitHubStats = async () => {
     try {
-        const repo = 'Beltah254/XBOT'; // Replace with your repo
+        const repo = 'Beltah254/X-BOT'; // Replace with your repo
         const response = await axios.get(`https://api.github.com/repos/${repo}`);
         const forks = response.data.forks_count;
         const stars = response.data.stargazers_count;
@@ -91,26 +91,16 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
 ┌════════════════⊷
 ┊✣╭─────────────
-┊✣┊ *Owner :*  ${s.OWNER_NAME}
-┊✣┊ *Mode :* ${mode}
-┊✣┊ *Prefix :* ${s.PREFIXE} 
-┊✣┊ *Time :* ${temps}
+┊✣┊ *Bot name :* ʙᴇʟᴛᴀʜ xʙᴏᴛ
+┊✣┊ *User:*  ${nomAuteurMessage}  
+┊✣┊ *Time :*  ${temps}
 ┊✣┊ *Date :* ${date} 
-┊✣┊ *Time Zone :* Africa/Nairobi
-┊✣┊ *Total Users :* 2003
-┊✣┊ *Ram :* ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())} 
-┊✣┊ *Uptime :* ${runtime(process.uptime())} 
-┊✣┊ *Theme :* XBOT 2025
+┊✣┊ *Uptime :*  ${runtime(process.uptime())}  
 ┊✣└───────────────
 ╰═════════════════⊷`;
 
     let menuMsg =`
-╭═════════════════⊷
-┊✣┊ *User:*  ${nomAuteurMessage}
-┊✣┊ *Bot name :* ʙᴇʟᴛᴀʜ xʙᴏᴛ
-┊✣┊ *Development :* ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 
-╰═════════════════⊷
-> © 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 2025`;
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ\n${readmore} `;
 
     // Sort categories alphabetically and generate menu
     const sortedCategories = Object.keys(coms).sort();
@@ -126,7 +116,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
         for (const cmd of sortedCommands) {
             menuMsg += ` 
-┊┊😑${commandNumber++}. ${cmd}`;
+${commandNumber++}. ${cmd}`;
         }
         menuMsg += `
 ┊└─────────────
@@ -147,7 +137,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
                showAdAttribution: true,
                 externalAdReply: {
                     title: "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓",
-                    body: "TAP HERE TO FOLLOW OUR CHANNEL",
+                    body: "ᴛᴀᴘ ʜᴇʀᴇ ᴛᴏ ғᴏʟʟᴏᴡ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ",
                     thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
                     sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
                     mediaType: 1,

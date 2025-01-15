@@ -82,7 +82,7 @@ zokou({
           body: videoDetails.title,
           mediaType: 1,
           sourceUrl: 'https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F',
-          thumbnailUrl: firstVideo.thumbnail,
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },

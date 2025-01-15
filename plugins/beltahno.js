@@ -71,13 +71,13 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     // Determine the greeting based on the current time
     const hour = moment().hour();
-    let greeting = "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 🌄, ʟᴇᴛ's ᴋɪᴄᴋsᴛᴀʀᴛ ʏᴏᴜʀ ᴅᴀʏ ✨";
+    let greeting = "ʟᴇᴛ's ᴋɪᴄᴋsᴛᴀʀᴛ ʏᴏᴜʀ ᴅᴀʏ ✨";
     if (hour >= 0 && hour <= 11) {
-        greeting = "ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 🌅, ʜᴏᴡ ɪs ʏᴏᴜʀ ᴅᴀʏ ɢᴏɪɴɢ 🎍";
+        greeting = "ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 🌄, ʟᴇᴛ's ᴋɪᴄᴋsᴛᴀʀᴛ ʏᴏᴜʀ ᴅᴀʏ ✨";
     } else if (hour >= 12 && hour <= 16) {
-        greeting = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🌃, ɪ ʜᴏᴘᴇ ʏᴏᴜʀ ᴅᴀʏ ᴡᴀs ɢᴏᴏᴅ 🦋";
+        greeting = "ɢᴏᴏᴅ ᴀғᴛᴇʀɴᴏᴏɴ 🌅, ʜᴏᴡ ɪs ʏᴏᴜʀ ᴅᴀʏ ɢᴏɪɴɢ 🎍";
     } else if (hour >= 16 && hour <= 21) {
-        greeting = "ɢᴏᴏᴅ ɴɪɢʜᴛ🌘, sᴡᴇᴇᴛ ᴅʀᴇᴀᴍs 💫";
+        greeting = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🌃, ɪ ʜᴏᴘᴇ ʏᴏᴜʀ ᴅᴀʏ ᴡᴀs ɢᴏᴏᴅ 🦋 ";
     } else if (hour >= 21 && hour <= 23) {
         greeting = "ɢᴏᴏᴅ ɴɪɢʜᴛ🌘, sᴡᴇᴇᴛ ᴅʀᴇᴀᴍs 💫";
     }
@@ -108,24 +108,24 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     for (const cat of sortedCategories) {
         menuMsg += `
-┌══⊷ 🙂‍↕️ ${cat.toUpperCase()} 🙂‍↔️══⊷ 
-┊┌─────────────`;
+╭━━━〔  ${cat.toUpperCase()} 〕━━━┈⊷
+┊✣╭──────────────`;
 
         // Sort commands alphabetically within the category
         const sortedCommands = coms[cat].sort();
 
         for (const cmd of sortedCommands) {
             menuMsg += ` 
-${commandNumber++}. ${cmd}`;
+┊✣┊${cmd}`;
         }
         menuMsg += `
-┊└─────────────
+┊✣╰──────────────
 ╰═════════════════⊷\n`;
     }
 
     menuMsg += `
 ┏┻━━━━━━━━━━━━━━━┻┓
-> © BELTAH TECH 👻 
+> © ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ 👻 
 ┗━━━━━━━━━━━━━━━━━┛`;
 
     

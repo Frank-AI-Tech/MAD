@@ -62,7 +62,7 @@ zokou({
   const _0xae590 = {
     'externalAdReply': {
       'title': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐄𝐓𝐓𝐈𝐍𝐆𝐒",
-      'body': "ʙᴏᴛ ʜᴀs ʙᴇᴇɴ ʀᴜɴɴɪɴɢ ғᴏʀ : " + _0x2f3abc,
+      'body': "👻 ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ʙᴏᴛ ɴᴇᴠᴇʀ sʟᴇᴇᴘs 👻",
       'sourceUrl': "https://whatsapp.com/channel/0029VaRHDBKKmCPKp9B2uH2F",
       'thumbnailUrl': "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
       'mediaType': 0x1,
@@ -74,7 +74,7 @@ zokou({
     'vcard': "BEGIN:VCARD\nVERSION:3.0\nFN:BELTAH XBOT\nORG: BELTAH XBOT Nexus;\nTEL;type=CELL;type=VOICE;waid=254114141192 :254737681758\nEND:VCARD"
   };
   await _0x161605.sendMessage(_0x205206, {
-    'text': "𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 UPTIME :" + _0x2f3abc,
+    'text': "ʙᴇʟᴛᴀʜ xʙᴏᴛ ʀᴜɴɴɪɴɢ ᴛɪᴍᴇ :" + _0x2f3abc,
     'contextInfo': _0xae590,
     'contacts': {
       'displayName': "BELTAH TECH Verified Contact",

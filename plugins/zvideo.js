@@ -77,11 +77,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ",
           body: videoDetails.title,
           mediaType: 1,
           sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -172,11 +172,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -194,7 +194,7 @@ zokou({
 
 // Command for lucky-video
 zokou({
-  nomCom: "lucky-video",
+  nomCom: "vid",
   categorie: "Music",
   reaction: "🎬"
 }, async (dest, zk, commandOptions) => {
@@ -267,11 +267,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ",
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -289,7 +289,7 @@ zokou({
 
 // Command for lucky-mp4
 zokou({
-  nomCom: "lucky-mp4",
+  nomCom: "mp4d",
   categorie: "Music",
   reaction: "🎬"
 }, async (dest, zk, commandOptions) => {
@@ -362,11 +362,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ",
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -457,11 +457,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F ',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -552,11 +552,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ",
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -564,7 +564,7 @@ zokou({
     };
 
     // Send the download link to the user
-    await zk.sendMessage(dest, messagePayload, { quoted: ms });
+    await zk.sendMessage(dest , messagePayload, { quoted: ms });
 
   } catch (error) {
     console.error('Error during download process:', error);
@@ -649,11 +649,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F ',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg",
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -671,7 +671,7 @@ zokou({
 
 // Command for video-document
 zokou({
-  nomCom: "videod-document",
+  nomCom: "vid-doc",
   categorie: "Music",
   reaction: "🎬"
 }, async (dest, zk, commandOptions) => {
@@ -744,11 +744,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F ',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -766,7 +766,7 @@ zokou({
 
 // Command for lucky-videodoc
 zokou({
-  nomCom: "lucky-videodoc",
+  nomCom: "vidoc",
   categorie: "Music",
   reaction: "🎬"
 }, async (dest, zk, commandOptions) => {
@@ -839,11 +839,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -934,11 +934,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F ',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },
@@ -956,7 +956,7 @@ zokou({
 
 // Command for lucky-mp4doc
 zokou({
-  nomCom: "lucky-mp4doc",
+  nomCom: "mp4doc",
   categorie: "Music",
   reaction: "🎬"
 }, async (dest, zk, commandOptions) => {
@@ -1029,11 +1029,11 @@ zokou({
       mimetype: 'video/mp4',
       contextInfo: {
         externalAdReply: {
-          title: videoDetails.title,
+          title: "ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ ᴍᴘ4 ᴘʟᴀʏᴇʀ" ,
           body: videoDetails.title,
           mediaType: 1,
-          sourceUrl: 'https://whatsapp.com/channel/0029VaihcQv84Om8LP59fO3f',
-          thumbnailUrl: firstVideo.thumbnail,
+          sourceUrl: 'https://whatsapp.com/channel/0029VauSv0PFCCoSB5tx9c1F',
+          thumbnailUrl: "https://telegra.ph/file/dcce2ddee6cc7597c859a.jpg" ,
           renderLargerThumbnail: false,
           showAdAttribution: true,
         },

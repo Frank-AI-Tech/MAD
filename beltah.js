@@ -132,7 +132,7 @@ function getCurrentDateTime() {
 setInterval(async () => {
     if (conf.AUTO_BIO === "yes") {
         const currentDateTime = getCurrentDateTime(); // Get the current date and time
-        const bioText = `👻 𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓 IS ONLINE 👻: ${currentDateTime}`; // Format the bio text
+        const bioText = `👻 ʙᴇʟᴛᴀʜ xʙᴏᴛ 👻 ɪs ᴏɴʟɪɴᴇ : ${currentDateTime}`; // Format the bio text
         await zk.updateProfileStatus(bioText); // Update the bio
         console.log(`Updated Bio: ${bioText}`); // Log the updated bio
     }
@@ -147,13 +147,13 @@ setInterval(async () => {
 
     await zk.rejectCall(callId, callerId);
     await zk.sendMessage(callerId, {
-      text: "*𝐁𝐄𝐋𝐓𝐀𝐇 𝐗𝐁𝐎𝐓* on Board *!!! NO CALLS ALLOWED!!!*"
+      text: "*sᴏʀʀʏ!! ɴᴏ ᴄᴀʟʟs ᴀʟʟᴏᴡᴇᴅ, ᴋɪɴᴅʟʏ ᴛᴇxᴛ.*\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ."
     });
   }
 });
 
         // Default auto-reply message
-let auto_reply_message = "Hello,its *BELTAH-XBOT* on board.We will get back to you as soon as possible.";
+let auto_reply_message = "ᴛʜᴇ ᴏᴡɴᴇʀ ɪs ᴄᴜʀʀᴇɴᴛʟʏ ᴜɴᴀᴠᴀɪʟᴀʙʟᴇ,,ᴛʜᴀɴᴋ ʏᴏᴜ ғᴏʀ ʏᴏᴜʀ ᴍᴇssᴀɢᴇ. ᴡᴇ ᴡɪʟʟ ʀᴇsᴘᴏɴᴅ sᴏᴏɴ.\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ.";
 
 // Track contacts that have already received the auto-reply
 let repliedContacts = new Set();
@@ -220,7 +220,7 @@ function createNotification(deletedMessage) {
         timeStyle: 'medium',
     }).format(new Date());
 
-    let notification = `*[ANTIDELETE DETECTED BY BELTAH XBOT]*\n\n`;
+    let notification = `*[ ᴍᴇssᴀɢᴇ ᴅᴇʟᴇᴛɪᴏɴ ᴅᴇᴛᴇᴄᴛᴇᴅ ]*\n\n`;
     notification += `*⌚Deletion Time:* ${timeInNairobi}\n`;
     notification += `*👤Deleted By:* @${deletedBy.split('@')[0]}\n\n`;
 
@@ -261,7 +261,7 @@ zk.ev.on("messages.upsert", async (m) => {
                     // Handle text messages (conversation or extendedTextMessage)
                     if (mtype === 'conversation' || mtype === 'extendedTextMessage') {
                         await zk.sendMessage(zk.user.id, {
-                            text: notification + `*Message:* ${deletedMessage.message[mtype].text}\n\n> POWERED BY BELTAH HACKING TEAM`,
+                            text: notification + `*Message:* ${deletedMessage.message[mtype].text}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ.`,
                             mentions: [deletedMessage.key.participant],
                         });
                     }
@@ -325,7 +325,7 @@ zk.ev.on("messages.upsert", async (m) => {
                     if (deletedMessage.message.conversation) {
                         // Text message
                         await zk.sendMessage(remoteJid, {
-                            text: notification + `*📖Deleted Message:* ${deletedMessage.message.conversation}\n\n> POWERED BY BELTAH HACKING TEAM`,
+                            text: notification + `*📖Deleted Message:* ${deletedMessage.message.conversation}\n\n> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ.`,
                             mentions: [deletedMessage.key.participant],
                         });
                     } else if (deletedMessage.message.imageMessage || 
@@ -1117,7 +1117,7 @@ if (conf.ANTILINK === "yes") {
                          /******************* PM_PERMT***************/
 
             if (!superUser && origineMessage === auteurMessage&& conf.PM_PERMIT === "yes" ) {
-                repondre("Sorry!!!Only Beltah and bot owner can command me in personal Mode.") ; return }
+                repondre("Access Denied!!!.") ; return }
             ///////////////////////////////
 
              
@@ -1186,7 +1186,7 @@ zk.ev.on('group-participants.update', async (group) => {
             }
 
             msg += `You might want to read the group Description to avoid getting removed...
-> BELTAH-MD BOT © 2024 VERSION.`;
+> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙᴇʟᴛᴀʜ ʜᴀᴄᴋɪɴɢ ᴛᴇᴀᴍ..`;
 
             zk.sendMessage(group.id, { image: { url: ppgroup }, caption: msg, mentions: membres });
         } else if (group.action == 'remove' && (await recupevents(group.id, "goodbye") == 'on')) {
@@ -1355,17 +1355,14 @@ zk.ev.on('group-participants.update', async (group) => {
                 await activateCrons();
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
-                let cmsg = `ʙᴇʟᴛᴀʜ-ᴍᴅ ʙᴏᴛ ɪs ᴄᴏɴɴᴇᴄᴛᴇᴅ...
+                let cmsg = `ʙᴇʟᴛᴀʜ xʙᴏᴛ ɪs ᴄᴏɴɴᴇᴄᴛᴇᴅ
 
- ╭────────────────◆
- │  ᴘʀᴇғɪx : [ ${prefixe} ]
- │  ᴍᴏᴅᴇ : ${md}
- │  ᴘʟᴜɢɪɴs : 345
- │  ᴘʟᴀᴛғᴏʀᴍ : ᴄʜʀᴏᴍᴇ(ᴜʙᴜɴᴛᴜ)
- │  ᴅᴇᴠ : ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 254 🇰🇪
- ╰─────────────────◆
+ᴍᴏᴅᴇ :${md}
+ᴘʀᴇғɪx : [ ${prefixe} ]
+ᴘʟᴜɢɪɴs :456
+ᴅᴇᴠᴇʟᴏᴘᴇʀ : ʙᴇʟᴛᴀʜ ᴛᴇᴄʜ 👻
 
-sᴜᴘᴘᴏʀᴛ ʙʏ sᴜʙsᴄʀɪʙɪɴɢ
+ᴡᴀᴛᴄʜ ᴀʟʟ ᴛᴜᴛᴏʀɪᴀʟs
 youtube.com/@Beltahtech2024`;
                 await zk.sendMessage( zk.user.id, { text: cmsg });
                 }
